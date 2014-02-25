@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.rk-transition-all,.rk-transition-all-l1,.rk-transition-all-slow
+,.rk-transition-all-l2,.rk-transition-all-l3,.rk-transition-all-normal
+,.rk-transition-all-l4,.rk-transition-all-l5,.rk-transition-all-fast,.rk-transition-all-l6,.rk-transition-all-vfast
+,.rk-transition-size,.rk-transition-size-l1,.rk-transition-size-slow
+,.rk-transition-size-l2,.rk-transition-size-l3,.rk-transition-size-normal
+,.rk-transition-size-l4,.rk-transition-size-l5,.rk-transition-size-fast,.rk-transition-size-l6,.rk-transition-size-vfast
+,.rk-transition-back,.rk-transition-back-l1,.rk-transition-back-slow
+,.rk-transition-back-l2,.rk-transition-back-l3,.rk-transition-back-normal
+,.rk-transition-back-l4,.rk-transition-back-l5,.rk-transition-back-fast,.rk-transition-back-l6,.rk-transition-back-vfast
+,.rk-transition-position,.rk-transition-position-l1,.rk-transition-position-slow
+,.rk-transition-position-l2,.rk-transition-position-l3,.rk-transition-position-normal
+,.rk-transition-position-l4,.rk-transition-position-l5,.rk-transition-position-fast,.rk-transition-position-l6,.rk-transition-position-vfast
+,.rk-transition-opacity,.rk-transition-opacity-l1,.rk-transition-opacity-slow
+,.rk-transition-opacity-l2,.rk-transition-opacity-l3,.rk-transition-opacity-normal
+,.rk-transition-opacity-l4,.rk-transition-opacity-l5,.rk-transition-opacity-fast,.rk-transition-opacity-l6,.rk-transition-opacity-vfast{
+	-webkit-transition-timing-function: ease-in-out;
+	-moz-transition-timing-function: ease-in-out;
+	-ms-transition-timing-function: ease-in-out;
+	-o-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.rk-transition-all{
+	-webkit-transition-property: all;
+	-moz-transition-property: all;
+	-ms-transition-property: all;
+	-o-transition-property: all;
+	transition-property: all;
+}
+
+.rk-transition-size{
+	-webkit-transition-property: width, height;
+	-moz-transition-property: width, height;
+	-ms-transition-property: width, height;
+	-o-transition-property: width, height;
+	transition-property: width, height;
+}
+
+.rk-transition-back {
+	-webkit-transition-property: background;
+	-moz-transition-property: background;
+	-ms-transition-property: background;
+	-o-transition-property: background;
+	transition-property: background;
+}
+
+.rk-transition-position {
+	-webkit-transition-property: top, bottom, left, right;
+	-moz-transition-property: top, bottom, left, right;
+	-ms-transition-property: top, bottom, left, right;
+	transition-property: top, bottom, left, right;
+}
+
+.rk-transition-opacity {
+	-webkit-transition-property: opacity;
+	-moz-transition-property: opacity;
+	-ms-transition-property: opacity;
+	-o-transition-property: opacity;
+	transition-property: opacity;
+}

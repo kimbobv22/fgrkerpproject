@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+
+	
+	<service serviceID="test001">
+		<result code="0">/jsp/app/test/T01001.jsp</result>
+	</service>
+
+</serviceList>

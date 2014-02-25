@@ -1,0 +1,16 @@
+.rk-default-top-frame
+,.rk-default-top-frame+*:BEFORE{
+	display:block;
+}
+
+.rk-default-top-frame{
+	position:fixed;
+	height: 40px;
+	width:100%;
+	z-index: 99999;
+}
+.rk-default-top-frame+*:BEFORE{
+	position:relative;
+	height: 40px;
+	content : "";
+}

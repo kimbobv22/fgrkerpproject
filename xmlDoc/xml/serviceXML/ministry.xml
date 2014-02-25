@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+
+	<actionClasses>
+		<class name="common">rk.app.ministry.S01001</class>
+	</actionClasses>
+	
+	<service serviceID="ministry" isPrimary="true">
+		<result code="0"></result>
+	</service>
+
+</serviceList>

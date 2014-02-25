@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+
+	<actionClasses>
+		<class name="login">rk.app.apply.A01001</class>
+	</actionClasses>
+	
+	<service serviceID="login" forwardServiceID="isExistSession">
+		<result code="0" serviceId="main.home" />
+		<result code="-1">/jsp/app/user/U01001.jsp</result>
+	</service>
+	
+	<service serviceID="saveApply" forwardServiceID="isExistSession">
+		<result code="0" serviceId="main.home" />
+		<result code="-1">/jsp/app/user/U01001.jsp</result>
+	</service>
+	
+	<service serviceID="isExistSession" actionClassName="login" mappingMethod="isExistSession"/>
+	<service serviceID="_isAdmin" actionClassName="login" mappingMethod="isAdmin" isPrivate="true"/>
+	<service serviceID="isAdmin" forwardServiceID="isExistSession">
+		<result serviceID="_isAdmin"/>
+	</service>
+
+</serviceList>

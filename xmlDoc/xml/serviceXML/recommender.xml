@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+
+	<actionClasses>
+		<class name="common">rk.app.recommender.R01001</class>
+	</actionClasses>
+	
+	<service serviceID="_isRecommender" actionClassName="common" mappingMethod="isRecommender" isPrivate="true"/>
+	<service serviceID="isRecommender" forwardServiceID="apply.isExistSession">
+		<result serviceID="_isRecommender"/>
+	</service>
+
+</serviceList>

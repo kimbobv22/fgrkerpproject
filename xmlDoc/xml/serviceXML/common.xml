@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+
+	<actionClasses>
+		<class name="APIConfig">rk.app.common.Z03001</class>
+	</actionClasses>
+	
+	<service serviceID="getMapAPIKey" actionClassName="APIConfig" mappingMethod="getMapAPIKey"/>
+
+</serviceList>

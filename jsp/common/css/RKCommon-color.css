@@ -1,0 +1,343 @@
+@charset "UTF-8";
+
+.rk-color-white
+,a:not(.ui-btn).rk-color-white
+,a:not(.ui-btn):HOVER.rk-color-white
+,a:not(.ui-btn):VISITED.rk-color-white
+,a:not(.ui-btn):ACTIVE.rk-color-white{
+	color: white;
+}
+.rk-color-white-back{
+	background-color: white;
+}
+.rk-color-white-border,.rk-color-white-border-l
+,.rk-color-white-border-r,.rk-color-white-border-t
+,.rk-color-white-border-b,.rk-color-white-border-all
+,.rk-color-gray1-border,.rk-color-gray1-border-l
+,.rk-color-gray1-border-r,.rk-color-gray1-border-t
+,.rk-color-gray1-border-b,.rk-color-gray1-border-all
+,.rk-color-gray2-border,.rk-color-gray2-border-l
+,.rk-color-gray2-border-r,.rk-color-gray2-border-t
+,.rk-color-gray2-border-b,.rk-color-gray2-border-all
+,.rk-color-gray3-border,.rk-color-gray3-border-l
+,.rk-color-gray3-border-r,.rk-color-gray3-border-t
+,.rk-color-gray3-border-b,.rk-color-gray3-border-all
+,.rk-color-gray4-border,.rk-color-gray4-border-l
+,.rk-color-gray4-border-r,.rk-color-gray4-border-t
+,.rk-color-gray4-border-b,.rk-color-gray4-border-all
+,.rk-color-gray5-border,.rk-color-gray5-border-l
+,.rk-color-gray5-border-r,.rk-color-gray5-border-t
+,.rk-color-gray5-border-b,.rk-color-gray5-border-all
+,.rk-color-gray6-border,.rk-color-gray6-border-l
+,.rk-color-gray6-border-r,.rk-color-gray6-border-t
+,.rk-color-gray6-border-b,.rk-color-gray6-border-all
+,.rk-color-gray7-border,.rk-color-gray7-border-l
+,.rk-color-gray7-border-r,.rk-color-gray7-border-t
+,.rk-color-gray7-border-b,.rk-color-gray7-border-all
+,.rk-color-gray8-border,.rk-color-gray8-border-l
+,.rk-color-gray8-border-r,.rk-color-gray8-border-t
+,.rk-color-gray8-border-b,.rk-color-gray8-border-all
+,.rk-color-gray9-border,.rk-color-gray9-border-l
+,.rk-color-gray9-border-r,.rk-color-gray9-border-t
+,.rk-color-gray9-border-b,.rk-color-gray9-border-all
+,.rk-color-black-border,.rk-color-black-border-l
+,.rk-color-black-border-r,.rk-color-black-border-t
+,.rk-color-black-border-b,.rk-color-black-border-all{
+	border-collapse:collapse;
+}
+
+.rk-color-white-border-l,.rk-color-white-border-all{
+	border-left: white 1px solid;
+}
+
+.rk-color-white-border-r,.rk-color-white-border-all{
+	border-right: white 1px solid;
+}
+
+.rk-color-white-border-t,.rk-color-white-border-all{
+	border-top: white 1px solid;
+}
+
+.rk-color-white-border-b,.rk-color-white-border-all{
+	border-bottom: white 1px solid;
+}
+
+.rk-color-gray1
+,a:not(.ui-btn).rk-color-gray1
+,a:not(.ui-btn):HOVER.rk-color-gray1
+,a:not(.ui-btn):VISITED.rk-color-gray1
+,a:not(.ui-btn):ACTIVE.rk-color-gray1{
+	color: #e7e7e7;
+}
+
+.rk-color-gray1-back{
+	background-color: #e7e7e7;
+}
+
+.rk-color-gray1-border-l,.rk-color-gray1-border-all {
+	border-left: #e7e7e7 1px solid;
+}
+
+.rk-color-gray1-border-r,.rk-color-gray1-border-all {
+	border-right: #e7e7e7 1px solid;
+}
+
+.rk-color-gray1-border-t,.rk-color-gray1-border-all {
+	border-top: #e7e7e7 1px solid;
+}
+
+.rk-color-gray1-border-b,.rk-color-gray1-border-all {
+	border-bottom: #e7e7e7 1px solid;
+}
+
+.rk-color-gray2
+,a:not(.ui-btn).rk-color-gray2
+,a:not(.ui-btn):HOVER.rk-color-gray2
+,a:not(.ui-btn):VISITED.rk-color-gray2
+,a:not(.ui-btn):ACTIVE.rk-color-gray2{
+	color: #d7d7d7;
+}
+
+.rk-color-gray2-back {
+	background-color: #d7d7d7;
+}
+
+.rk-color-gray2-border-l,.rk-color-gray2-border-all {
+	border-left: #d7d7d7 1px solid;
+}
+
+.rk-color-gray2-border-r,.rk-color-gray2-border-all {
+	border-right: #d7d7d7 1px solid;
+}
+
+.rk-color-gray2-border-t,.rk-color-gray2-border-all {
+	border-top: #d7d7d7 1px solid;
+}
+
+.rk-color-gray2-border-b,.rk-color-gray2-border-all {
+	border-bottom: #d7d7d7 1px solid;
+}
+
+.rk-color-gray3
+,a:not(.ui-btn).rk-color-gray3
+,a:not(.ui-btn):HOVER.rk-color-gray3
+,a:not(.ui-btn):VISITED.rk-color-gray3
+,a:not(.ui-btn):ACTIVE.rk-color-gray3{
+	color: #cacaca;
+}
+
+.rk-color-gray3-back {
+	background-color: #cacaca;
+}
+
+.rk-color-gray3-border-l,.rk-color-gray3-border-all {
+	border-left: #cacaca 1px solid;
+}
+
+.rk-color-gray3-border-r,.rk-color-gray3-border-all {
+	border-right: #cacaca 1px solid;
+}
+
+.rk-color-gray3-border-t,.rk-color-gray3-border-all {
+	border-top: #cacaca 1px solid;
+}
+
+.rk-color-gray3-border-b,.rk-color-gray3-border-all {
+	border-bottom: #cacaca 1px solid;
+}
+
+.rk-color-gray4
+,a:not(.ui-btn).rk-color-gray4
+,a:not(.ui-btn):HOVER.rk-color-gray4
+,a:not(.ui-btn):VISITED.rk-color-gray4
+,a:not(.ui-btn):ACTIVE.rk-color-gray4{
+	color: #b5b5b5;
+}
+
+.rk-color-gray4-back {
+	background-color: #b5b5b5;
+}
+
+.rk-color-gray4-border-l,.rk-color-gray4-border-all {
+	border-left: #b5b5b5 1px solid;
+}
+
+.rk-color-gray4-border-r,.rk-color-gray4-border-all {
+	border-right: #b5b5b5 1px solid;
+}
+
+.rk-color-gray4-border-t,.rk-color-gray4-border-all {
+	border-top: #b5b5b5 1px solid;
+}
+
+.rk-color-gray4-border-b,.rk-color-gray4-border-all {
+	border-bottom: #b5b5b5 1px solid;
+}
+
+.rk-color-gray5
+,a:not(.ui-btn).rk-color-gray5
+,a:not(.ui-btn):HOVER.rk-color-gray5
+,a:not(.ui-btn):VISITED.rk-color-gray5
+,a:not(.ui-btn):ACTIVE.rk-color-gray5{
+	color: #8e8e8e;
+}
+
+.rk-color-gray5-back {
+	background-color: #8e8e8e;
+}
+
+.rk-color-gray5-border-l,.rk-color-gray5-border-all {
+	border-left: #8e8e8e 1px solid;
+}
+
+.rk-color-gray5-border-r,.rk-color-gray5-border-all {
+	border-right: #8e8e8e 1px solid;
+}
+
+.rk-color-gray5-border-t,.rk-color-gray5-border-all {
+	border-top: #8e8e8e 1px solid;
+}
+
+.rk-color-gray5-border-b,.rk-color-gray5-border-all {
+	border-bottom: #8e8e8e 1px solid;
+}
+
+.rk-color-gray6
+,a:not(.ui-btn).rk-color-gray6
+,a:not(.ui-btn):HOVER.rk-color-gray6
+,a:not(.ui-btn):VISITED.rk-color-gray6
+,a:not(.ui-btn):ACTIVE.rk-color-gray6{
+	color: #6a6a6a;
+}
+
+.rk-color-gray6-back {
+	background-color: #6a6a6a;
+}
+
+.rk-color-gray6-border-l,.rk-color-gray6-border-all {
+	border-left: #6a6a6a 1px solid;
+}
+
+.rk-color-gray6-border-r,.rk-color-gray6-border-all {
+	border-right: #6a6a6a 1px solid;
+}
+
+.rk-color-gray6-border-t,.rk-color-gray6-border-all {
+	border-top: #6a6a6a 1px solid;
+}
+
+.rk-color-gray6-border-b,.rk-color-gray6-border-all {
+	border-bottom: #6a6a6a 1px solid;
+}
+
+.rk-color-gray7
+,a:not(.ui-btn).rk-color-gray7
+,a:not(.ui-btn):HOVER.rk-color-gray7
+,a:not(.ui-btn):VISITED.rk-color-gray7
+,a:not(.ui-btn):ACTIVE.rk-color-gray7{
+	color: #515153;
+}
+
+.rk-color-gray7-back {
+	background-color: #515153;
+}
+
+.rk-color-gray7-border-l,.rk-color-gray7-border-all {
+	border-left: #515153 1px solid;
+}
+
+.rk-color-gray7-border-r,.rk-color-gray7-border-all {
+	border-right: #515153 1px solid;
+}
+
+.rk-color-gray7-border-t,.rk-color-gray7-border-all {
+	border-top: #515153 1px solid;
+}
+
+.rk-color-gray7-border-b,.rk-color-gray7-border-all {
+	border-bottom: #515153 1px solid;
+}
+
+.rk-color-gray8
+,a:not(.ui-btn).rk-color-gray8
+,a:not(.ui-btn):HOVER.rk-color-gray8
+,a:not(.ui-btn):VISITED.rk-color-gray8
+,a:not(.ui-btn):ACTIVE.rk-color-gray8{
+	color: #404040;
+}
+
+.rk-color-gray8-back {
+	background-color: #404040;
+}
+
+.rk-color-gray8-border-l,.rk-color-gray8-border-all {
+	border-left: #404040 1px solid;
+}
+
+.rk-color-gray8-border-r,.rk-color-gray8-border-all {
+	border-right: #404040 1px solid;
+}
+
+.rk-color-gray8-border-t,.rk-color-gray8-border-all {
+	border-top: #404040 1px solid;
+}
+
+.rk-color-gray8-border-b,.rk-color-gray8-border-all {
+	border-bottom: #404040 1px solid;
+}
+
+.rk-color-gray9
+,a:not(.ui-btn).rk-color-gray9
+,a:not(.ui-btn):HOVER.rk-color-gray9
+,a:not(.ui-btn):VISITED.rk-color-gray9
+,a:not(.ui-btn):ACTIVE.rk-color-gray9{
+	color: #1a1a1a;
+}
+
+.rk-color-gray9-back {
+	background-color: #1a1a1a;
+}
+
+.rk-color-gray9-border-l,.rk-color-gray9-border-all {
+	border-left: #1a1a1a 1px solid;
+}
+
+.rk-color-gray9-border-r,.rk-color-gray9-border-all {
+	border-right: #1a1a1a 1px solid;
+}
+
+.rk-color-gray9-border-t,.rk-color-gray9-border-all {
+	border-top: #1a1a1a 1px solid;
+}
+
+.rk-color-gray9-border-b,.rk-color-gray9-border-all {
+	border-bottom: #1a1a1a 1px solid;
+}
+
+.rk-color-black
+,a:not(.ui-btn).rk-color-black
+,a:not(.ui-btn):HOVER.rk-color-black
+,a:not(.ui-btn):VISITED.rk-color-black
+,a:not(.ui-btn):ACTIVE.rk-color-black{
+	color: #000000;
+}
+
+.rk-color-black-back{
+	background-color: #000000;
+}
+
+.rk-color-black-border-l,.rk-color-black-border-all{
+	border-left: #000000 1px solid;
+}
+
+.rk-color-black-border-r,.rk-color-black-border-all{
+	border-right: #000000 1px solid;
+}
+
+.rk-color-black-border-t,.rk-color-black-border-all{
+	border-top: #000000 1px solid;
+}
+
+.rk-color-black-border-b,.rk-color-black-border-all{
+	border-bottom: #000000 1px solid;
+}

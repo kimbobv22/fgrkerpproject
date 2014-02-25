@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+@IMPORT url(./RKCommon-color.css);
+@IMPORT url(./RKCommon-HTMLExtension.css);
+@IMPORT url(./RKCommon-label.css);
+@IMPORT url(./RKCommon-opacity.css);
+@IMPORT url(./RKCommon-shadow.css);
+@IMPORT url(./RKCommon-shape.css);
+@IMPORT url(./RKCommon-transition.css);
+@IMPORT url(./RKCommon-image.css);
+@IMPORT url(./RKCommon-icon.css);
+
+.rk-no-margin{
+	margin: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.rk-no-padding{
+	padding: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.rk-responsive-size
+,.rk-responsive-p{
+	min-width: 450px;
+	max-width: 550px;
+}
+.rk-responsive-p{
+	margin: 0px auto;
+}
+
+.rk-responsive-r
+,.rk-responsive-l{
+	display: inline-block;
+}
+.rk-responsive{
+	float: right;
+}
+.rk-responsive-l{
+	float: left;
+}
+
+label[jg-error-column]{
+	margin: 0px;
+	margin-bottom: 15px;
+}
+.rk-validator-error-label{
+	text-align: right;
+}
+
+.rk-common-popup{}
+.rk-common-popup .popup-content-frame{
+	display: inline-block;
+	width:100%;
+	padding:4%;
+}
+.rk-common-popup .popup-content-frame .popup-label{
+	display: block;
+}
+.rk-common-popup .popup-content-frame .popup-label.popup-title{}
+.rk-common-popup .popup-content-frame .popup-label.popup-message{
+	margin-bottom: 20px;
+} 
+.rk-common-popup .popup-content-frame .popup-content{
+	width: 100%;
+}
+.rk-common-popup .popup-content-frame .popup-buttenset{
+	width: 100%;
+	margin-top: 15px;
+	overflow: auto;
+}
+
+@media (max-width:600px){
+	.rk-responsive-size
+	,.rk-responsive-p{
+		min-width: 350px;
+		max-width: 380px;
+	}
+}
+
+@media (max-width:380px){
+	.rk-responsive-size
+	,.rk-responsive-p{
+		width: calc(100% - 30px);
+		width: -webkit-calc(100% - 30px);
+		width: -moz-calc(100% - 30px);
+		width: -ms-calc(100% - 30px);
+		width: -o-calc(100% - 30px);
+		min-width: calc(100% - 30px);
+		min-width: -webkit-calc(100% - 30px);
+		min-width: -moz-calc(100% - 30px);
+		min-width: -ms-calc(100% - 30px);
+		min-width: -o-calc(100% - 30px);
+	}
+	.rk-responsive-r
+	,.rk-responsive-l{
+		display: block;
+		margin: 5px 0px;
+		float: none;
+	}
+}
