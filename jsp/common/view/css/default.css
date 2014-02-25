@@ -14,3 +14,9 @@
 	height: 40px;
 	content : "";
 }
+
+.rk-default-top-frame .main-logo{
+	float: left;
+	margin-left: 10px;
+	margin-top: 6px;
+}

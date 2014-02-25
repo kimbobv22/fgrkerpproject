@@ -9,7 +9,9 @@
 <body>
 	<jsp:include page="/jsp/common/view/RKDefault.jsp" flush="true" />
 	<div data-role="page" id="m01001" class="m01001">
+		hello world!
 		
+		<div rk-map-view="경기도 남양주시 별내면 청학리 418-3 금강프라자 502호" class="rk-responsive-p" style="height: 300px;"></div>
 	</div>
 </body>
 </html>

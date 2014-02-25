@@ -14,3 +14,7 @@
 	-o-background-size: cover !important;
 	background-size: cover !important;
 }
+
+a.rk-image-btn:not(.ui-disabled):ACTIVE{
+	background-size: 95%;
+}
