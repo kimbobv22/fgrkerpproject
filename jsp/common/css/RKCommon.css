@@ -9,6 +9,7 @@
 @IMPORT url(./RKCommon-transition.css);
 @IMPORT url(./RKCommon-image.css);
 @IMPORT url(./RKCommon-icon.css);
+@IMPORT url(./RKCommon-JQueryExtension.css);
 
 .rk-no-margin{
 	margin: 0;
@@ -35,15 +36,26 @@
 	margin: 0px auto;
 }
 
-.rk-responsive-r
-,.rk-responsive-l{
+.rk-responsive-r,.rk-responsive-r-fixed
+,.rk-responsive-l,.rk-responsive-l-fixed
+,.rk-responsive{
 	display: inline-block;
 }
-.rk-responsive{
+.rk-responsive-r
+,.rk-responsive-r-fixed{
 	float: right;
 }
-.rk-responsive-l{
+.rk-responsive-l
+,.rk-responsive-l-fixed{
 	float: left;
+}
+.rk-responsive-r.rk-responsive-btn
+,.rk-responsive-r-fixed.rk-responsive-btn
+,.rk-responsive-l.rk-responsive-btn
+,.rk-responsive-l-fixed.rk-responsive-btn
+,.rk-responsive.rk-responsive-btn{
+	min-width: 220px;
+	max-width: 350px;
 }
 
 label[jg-error-column]{
@@ -82,6 +94,15 @@ label[jg-error-column]{
 		min-width: 350px;
 		max-width: 380px;
 	}
+	
+	.rk-responsive-r.rk-responsive-btn
+	,.rk-responsive-r-fixed.rk-responsive-btn
+	,.rk-responsive-l.rk-responsive-btn
+	,.rk-responsive-l-fixed.rk-responsive-btn
+	,.rk-responsive.rk-responsive-btn{
+		min-width: 200px;
+		max-width: 300px;
+	}
 }
 
 @media (max-width:380px){
@@ -98,10 +119,14 @@ label[jg-error-column]{
 		min-width: -ms-calc(100% - 30px);
 		min-width: -o-calc(100% - 30px);
 	}
-	.rk-responsive-r
-	,.rk-responsive-l{
+	.rk-responsive-r,.rk-responsive-l,.rk-responsive
+	,.rk-responsive.rk-responsive-btn
+	,.rk-responsive-r.rk-responsive-btn
+	,.rk-responsive-l.rk-responsive-btn{
 		display: block;
 		margin: 5px 0px;
 		float: none;
+		max-width: inherit;
+		min-width: inherit;
 	}
 }

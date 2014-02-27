@@ -2,17 +2,12 @@
 <serviceList>
 
 	<actionClasses>
-		<class name="login">rk.app.apply.A01001</class>
+		<class name="login">rk.app.member.B01001</class>
 	</actionClasses>
 	
 	<service serviceID="login" forwardServiceID="isExistSession">
 		<result code="0" serviceId="main.home" />
-		<result code="-1">/jsp/app/user/U01001.jsp</result>
-	</service>
-	
-	<service serviceID="saveApply" forwardServiceID="isExistSession">
-		<result code="0" serviceId="main.home" />
-		<result code="-1">/jsp/app/user/U01001.jsp</result>
+		<result code="-1">/jsp/app/member/B01001.jsp</result>
 	</service>
 	
 	<service serviceID="isExistSession" actionClassName="login" mappingMethod="isExistSession"/>

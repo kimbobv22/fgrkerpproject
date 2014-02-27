@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.main.M01001">
+
+<query keyName="isAdmin">
+SELECT *
+FROM ATVIEW_MENU_0001
+WHERE 1=1
+ORDER BY MENU_GID ASC
+</query>
+
+</queryList>

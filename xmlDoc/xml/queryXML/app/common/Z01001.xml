@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.common.Z01001">
+
+<query keyName="canAccess">
+SELECT IF(ATFUNC_Z_GETACCESSLVL(ATFUNC_Z_GETACCESSCTG(#{memSid})) >= ATFUNC_Z_GETACCESSLVL(#{accessCtg}),'Y','N') CAN_ACCESS
+FROM DUAL
+</query>
+
+</queryList>

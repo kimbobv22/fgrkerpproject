@@ -10,41 +10,6 @@
 .rk-color-white-back{
 	background-color: white;
 }
-.rk-color-white-border,.rk-color-white-border-l
-,.rk-color-white-border-r,.rk-color-white-border-t
-,.rk-color-white-border-b,.rk-color-white-border-all
-,.rk-color-gray1-border,.rk-color-gray1-border-l
-,.rk-color-gray1-border-r,.rk-color-gray1-border-t
-,.rk-color-gray1-border-b,.rk-color-gray1-border-all
-,.rk-color-gray2-border,.rk-color-gray2-border-l
-,.rk-color-gray2-border-r,.rk-color-gray2-border-t
-,.rk-color-gray2-border-b,.rk-color-gray2-border-all
-,.rk-color-gray3-border,.rk-color-gray3-border-l
-,.rk-color-gray3-border-r,.rk-color-gray3-border-t
-,.rk-color-gray3-border-b,.rk-color-gray3-border-all
-,.rk-color-gray4-border,.rk-color-gray4-border-l
-,.rk-color-gray4-border-r,.rk-color-gray4-border-t
-,.rk-color-gray4-border-b,.rk-color-gray4-border-all
-,.rk-color-gray5-border,.rk-color-gray5-border-l
-,.rk-color-gray5-border-r,.rk-color-gray5-border-t
-,.rk-color-gray5-border-b,.rk-color-gray5-border-all
-,.rk-color-gray6-border,.rk-color-gray6-border-l
-,.rk-color-gray6-border-r,.rk-color-gray6-border-t
-,.rk-color-gray6-border-b,.rk-color-gray6-border-all
-,.rk-color-gray7-border,.rk-color-gray7-border-l
-,.rk-color-gray7-border-r,.rk-color-gray7-border-t
-,.rk-color-gray7-border-b,.rk-color-gray7-border-all
-,.rk-color-gray8-border,.rk-color-gray8-border-l
-,.rk-color-gray8-border-r,.rk-color-gray8-border-t
-,.rk-color-gray8-border-b,.rk-color-gray8-border-all
-,.rk-color-gray9-border,.rk-color-gray9-border-l
-,.rk-color-gray9-border-r,.rk-color-gray9-border-t
-,.rk-color-gray9-border-b,.rk-color-gray9-border-all
-,.rk-color-black-border,.rk-color-black-border-l
-,.rk-color-black-border-r,.rk-color-black-border-t
-,.rk-color-black-border-b,.rk-color-black-border-all{
-	border-collapse:collapse;
-}
 
 .rk-color-white-border-l,.rk-color-white-border-all{
 	border-left: white 1px solid;

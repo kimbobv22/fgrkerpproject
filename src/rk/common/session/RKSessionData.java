@@ -8,7 +8,7 @@ import com.jg.vo.JGDataset;
 public class RKSessionData extends JGDataset{
 	
 	protected static final String KEY_RKSESSIONDATA = "_rkSessionData_";
-	protected static final String KEY_COLUMN_APPLY_ID = "apply_id";
+	protected static final String KEY_COLUMN_MEM_SID = "mem_sid";
 
 	public static final RKSessionData sessionData(HttpServletRequest request_){
 		return (RKSessionData)request_.getSession().getAttribute(KEY_RKSESSIONDATA);
@@ -30,20 +30,20 @@ public class RKSessionData extends JGDataset{
 		return isExistSession(serviceBox_.getRequest());
 	}
 	
-	public static final String currentApplyID(HttpServletRequest request_) throws Exception{
+	public static final String currentMemSid(HttpServletRequest request_) throws Exception{
 		RKSessionData sessionData_ = sessionData(request_);
 		if(sessionData_ != null){
-			return sessionData_.getApplyID();
+			return sessionData_.getMemSid();
 		}
 		
 		return null;
 	}
-	public static final String currentApplyID(JGServiceBox serviceBox_) throws Exception{
-		return currentApplyID(serviceBox_.getRequest());
+	public static final String currentMemSid(JGServiceBox serviceBox_) throws Exception{
+		return currentMemSid(serviceBox_.getRequest());
 	}
 	
-	public final String getApplyID() throws Exception{
-		return (String)this.getColumnValue(KEY_COLUMN_APPLY_ID, 0);
+	public final String getMemSid() throws Exception{
+		return (String)this.getColumnValue(KEY_COLUMN_MEM_SID, 0);
 	}
 	
 	public static final RKSessionData makeSessionData(JGDataset dataset_) throws Exception{

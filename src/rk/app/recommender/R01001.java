@@ -15,9 +15,10 @@ public class R01001 extends JGAction {
 	protected void initAction(JGServiceBox arg0){}
 
 	public int isRecommender(JGServiceBox serviceBox_) throws Exception{
-		String applyId_ = RKSessionData.currentApplyID(serviceBox_);
+		String misId_ = serviceBox_.getParameter("misId");
+		String memSid_ = RKSessionData.currentMemSid(serviceBox_);
 		JGDBQuery query_ = JGDBXMLQueryManager.sharedManager().createQuery(_queryXMLSetKey, "isRecommender"
-				, new Object[]{"applyId",applyId_});
+				, new Object[]{"misId",misId_,"memSid",memSid_});
 		
 		return (getDBConnection().executeQueryAndGetFirst(query_).equals("Y") ? 0 : -1);
 	}

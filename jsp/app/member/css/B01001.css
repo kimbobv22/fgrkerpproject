@@ -1,0 +1,46 @@
+.b01001
+,.b01001 .header-frame
+,.b01001 .content-frame{
+	position: relative;
+	display: block;
+	overflow: auto;
+}
+
+.b01001 .header-frame{
+	padding: 50px 0px;
+}
+.b01001 .content-frame
+,.b01001 .footer-frame{
+	margin-top: 20px;
+}
+
+.b01001 .header-frame .main-logo{
+	background-image: url(../image/b01001MainLogo.png);
+	width: 250px;
+	height: 250px;
+	margin: 0px auto;
+	display: block;
+}
+
+.b01001 .content-frame .button-set{
+	text-align: center;
+}
+
+.b01001 .footer-frame a:not(.ui-btn){
+	margin-left: 15px;
+}
+
+@media (max-width:600px){}
+@media (max-width:380px){
+	.b01001 .header-frame .main-logo{
+		background-image: url(../image/b01001MainLogo.png);
+		width: 200px;
+		height: 200px;
+	}
+}
+
+@media (-webkit-min-device-pixel-ratio:2){
+	.b01001 .header-frame .main-logo{
+		background-image: url(../image/b01001MainLogo@2x.png);
+	}
+}

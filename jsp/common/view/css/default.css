@@ -1,5 +1,6 @@
 .rk-default-top-frame
-,.rk-default-top-frame+*:BEFORE{
+,.rk-default-top-frame+*:BEFORE
+,.rk-default-footer-frame{
 	display:block;
 }
 
@@ -19,4 +20,11 @@
 	float: left;
 	margin-left: 10px;
 	margin-top: 6px;
+}
+
+.rk-default-footer-frame{
+	position: relative;
+	margin-top: 20px;
+	padding: 10px 0px;
+	overflow: auto;
 }

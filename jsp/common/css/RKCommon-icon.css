@@ -8,7 +8,7 @@
 	background-size: 15px;
 }
 
-.rk-icon-main-logo,.rk-icon-main-logo-black,.rk-icon-main-logo-gray{
+.rk-icon{
 	display: inline-block;
 	overflow: auto;
 	background-repeat: no-repeat;
@@ -18,30 +18,30 @@
 	height: 26px;
 }
 
-.rk-icon-main-logo
+.rk-icon.rk-icon-main-logo
 ,.ui-icon-rk-main-logo:AFTER{
 	background-image: url(../image/icon/iconMainLogo.png);
 }
-.rk-icon-main-logo-black
+.rk-icon.rk-icon-main-logo-black
 ,.ui-icon-rk-main-logo-black:AFTER{
 	background-image: url(../image/icon/iconMainLogoB.png);
 }
-.rk-icon-main-logo-gray
+.rk-icon.rk-icon-main-logo-gray
 ,.ui-icon-rk-main-logo-gray:AFTER{
 	background-image: url(../image/icon/iconMainLogoG.png);
 }
 
 @media (-webkit-min-device-pixel-ratio:2){
 	
-	.rk-icon-main-logo
+	.rk-icon.rk-icon-main-logo
 	,.ui-icon-rk-main-logo:AFTER{
 		background-image: url(../image/icon/iconMainLogo@2x.png);
 	}
-	.rk-icon-main-logo-black
+	.rk-icon.rk-icon-main-logo-black
 	,.ui-icon-rk-main-logo-black:AFTER{
 		background-image: url(../image/icon/iconMainLogoB@2x.png);
 	}
-	.rk-icon-main-logo-gray
+	.rk-icon.rk-icon-main-logo-gray
 	,.ui-icon-rk-main-logo-gray:AFTER{
 		background-image: url(../image/icon/iconMainLogoG@2x.png);
 	}

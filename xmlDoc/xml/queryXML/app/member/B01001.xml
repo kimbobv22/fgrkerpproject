@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.common.Z01001">
+
+<query keyName="isAdmin">
+SELECT ATFUNC_B_ISADMIN(#{memSid}) ADM_LVL FROM DUAL
+</query>
+
+</queryList>
