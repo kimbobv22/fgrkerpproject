@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+
+	<actionClasses>
+		<class name="common">rk.app.apply.A01000</class>
+		<class name="member_basic">rk.app.apply.A01001</class>
+		<class name="member_detail">rk.app.apply.A01003</class>
+		<class name="leader_basic">rk.app.apply.A01007</class>
+		<class name="leader_detail">rk.app.apply.A01009</class>
+		
+		<class name="admin_member_basic">rk.app.apply.A03001</class>
+		<class name="admin_leader_basic">rk.app.apply.A03005</class>
+		
+	</actionClasses>
+	
+	<service serviceID="canAccess" actionClassName="common" mappingMethod="canAccess" />
+	
+	<service serviceID="_alreadyHaveApply" isPrivate="true">
+		<result>/jsp/app/apply/A01019.jsp</result>
+	</service>
+	
+	<!-- member -->
+	<virtualMap pattern="^member$" serviceID="memberApplyTargetList" />
+	<virtualMap pattern="^member\/[0-9]{13,15}$" serviceID="memberApplyView" />
+	<virtualMap pattern="^member\/[0-9]{13,15}\/[0-9]{12}$" serviceID="memberApplyViewO" />
+	
+	<service serviceID="decodeMemberApply" actionClassName="common" mappingMethod="decodeMemberApply" />
+	
+	<service serviceID="_getMemberApplyTargetList" actionClassName="member_basic" mappingMethod="getMemberApplyTargetList" isPrivate="true" />
+	<service serviceID="getMemberApplyTargetList" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_getMemberApplyTargetList"/>
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="_memberApplyTargetList" isPrivate="true">
+		<result>/jsp/app/apply/A01001.jsp</result>
+	</service>
+	<service serviceID="memberApplyTargetList" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_memberApplyTargetList"/>
+		<result code="-1" serviceID="member.login"/>
+	</service>
+	
+	<service serviceID="_memberApplyView" isPrivate="true">
+		<result>/jsp/app/apply/A01003.jsp</result>
+	</service>
+	<service serviceID="_memberApplyViewM" isPrivate="true">
+		<result>/jsp/app/apply/A01003M.jsp</result>
+	</service>
+	
+	<service serviceID="memberApplyView" actionClassName="common" mappingMethod="decodeMemberApply">
+		<result code="0" serviceID="_memberApplyView"/>
+		<result code="1" serviceID="_memberApplyViewM"/>
+		<result code="-1" serviceID="error.reject"/>
+		<result code="-2" serviceID="error.notFound"/>
+	</service>
+	<service serviceID="memberApplyViewO" actionClassName="common" mappingMethod="decodeMemberApplyOther">
+		<result code="0" serviceID="_memberApplyView"/>
+		<result code="1" serviceID="_memberApplyViewM"/>
+		<result code="-1" serviceID="error.reject"/>
+		<result code="-2" serviceID="error.notFound"/>
+	</service>
+	
+	<service serviceID="_newMemberApplyView" actionClassName="member_detail" mappingMethod="decodeNewMemberApply" isPrivate="true">
+		<result code="0" serviceID="_memberApplyViewM"/>
+		<result code="-1" serviceID="_alreadyHaveApply"/>
+		<result code="-2" serviceID="error.reject"/>
+	</service>
+	<service serviceID="newMemberApplyView" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_newMemberApplyView"/>
+		<result code="-1" serviceID="member.login"/>
+	</service>
+	
+	<service serviceID="_getMemberApplyData" actionClassName="member_detail" mappingMethod="getApplyData" isPrivate="true" />
+	<service serviceID="getMemberApplyData" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_getMemberApplyData" />
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="_updateMemberApplyData" actionClassName="member_detail" mappingMethod="updateApplyData" isPrivate="true" />
+	<service serviceID="updateMemberApplyData" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_updateMemberApplyData" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_submitMemberApplyData" actionClassName="member_detail" mappingMethod="submitApplyData" isPrivate="true" />
+	<service serviceID="submitMemberApplyData" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_submitMemberApplyData" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_removeMemberApplyData" actionClassName="member_detail" mappingMethod="removeApplyData" isPrivate="true" />
+	<service serviceID="removeMemberApplyData" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_removeMemberApplyData" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_rejectMemberApply" actionClassName="member_detail" mappingMethod="rejectApply" isPrivate="true" />
+	<service serviceID="rejectMemberApply" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_rejectMemberApply" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<!-- leader -->
+	<virtualMap pattern="^leader$" serviceID="leaderApplyTargetList" />
+	<virtualMap pattern="^leader\/[0-9]{13,15}$" serviceID="leaderApplyView" />
+	<virtualMap pattern="^leader\/[0-9]{13,15}\/[0-9]{12}$" serviceID="leaderApplyViewO" />
+	
+	<service serviceID="decodeLeaderApply" actionClassName="common" mappingMethod="decodeLeaderApply" />
+	
+	<service serviceID="_getLeaderApplyTargetList" actionClassName="leader_basic" mappingMethod="getLeaderApplyTargetList" isPrivate="true" />
+	<service serviceID="getLeaderApplyTargetList" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_getLeaderApplyTargetList"/>
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="_leaderApplyTargetList" isPrivate="true">
+		<result>/jsp/app/apply/A01007.jsp</result>
+	</service>
+	<service serviceID="leaderApplyTargetList" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_leaderApplyTargetList"/>
+		<result code="-1" serviceID="member.login"/>
+	</service>
+	
+	<service serviceID="_leaderApplyView" isPrivate="true">
+		<result>/jsp/app/apply/A01009.jsp</result>
+	</service>
+	<service serviceID="_leaderApplyViewM" isPrivate="true">
+		<result>/jsp/app/apply/A01009M.jsp</result>
+	</service>
+	
+	<service serviceID="leaderApplyView" actionClassName="common" mappingMethod="decodeLeaderApply">
+		<result code="0" serviceID="_leaderApplyView"/>
+		<result code="1" serviceID="_leaderApplyViewM"/>
+		<result code="-1" serviceID="error.reject"/>
+		<result code="-2" serviceID="error.notFound"/>
+	</service>
+	<service serviceID="leaderApplyViewO" actionClassName="common" mappingMethod="decodeLeaderApplyOther">
+		<result code="0" serviceID="_leaderApplyView"/>
+		<result code="1" serviceID="_leaderApplyViewM"/>
+		<result code="-1" serviceID="error.reject"/>
+		<result code="-2" serviceID="error.notFound"/>
+	</service>
+	
+	<service serviceID="_newLeaderApplyView" actionClassName="leader_detail" mappingMethod="decodeNewLeaderApply" isPrivate="true">
+		<result code="0" serviceID="_leaderApplyViewM"/>
+		<result code="-1" serviceID="_alreadyHaveApply"/>
+		<result code="-2" serviceID="error.reject"/>
+	</service>
+	<service serviceID="newLeaderApplyView" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_newLeaderApplyView"/>
+		<result code="-1" serviceID="member.login"/>
+	</service>
+	
+	<service serviceID="_getLeaderApplyData" actionClassName="leader_detail" mappingMethod="getApplyData" isPrivate="true" />
+	<service serviceID="getLeaderApplyData" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_getLeaderApplyData" />
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="_updateLeaderApplyData" actionClassName="leader_detail" mappingMethod="updateApplyData" isPrivate="true" />
+	<service serviceID="updateLeaderApplyData" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_updateLeaderApplyData" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_submitLeaderApplyData" actionClassName="leader_detail" mappingMethod="submitApplyData" isPrivate="true" />
+	<service serviceID="submitLeaderApplyData" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_submitLeaderApplyData" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_removeLeaderApplyData" actionClassName="leader_detail" mappingMethod="removeApplyData" isPrivate="true" />
+	<service serviceID="removeLeaderApplyData" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_removeLeaderApplyData" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_rejectRejectApply" actionClassName="member_detail" mappingMethod="rejectApply" isPrivate="true" />
+	<service serviceID="rejectRejectApply" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_rejectRejectApply" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_rejectLeaderApply" actionClassName="leader_detail" mappingMethod="rejectApply" isPrivate="true" />
+	<service serviceID="rejectLeaderApply" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_rejectLeaderApply" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<!-- admin -->
+	<virtualMap pattern="^admin_memberList$" serviceID="admin_memberApplyList" />
+	<virtualMap pattern="^admin_memberList\/[0-9]{13,15}$" serviceID="admin_memberApplyList" />
+	
+	<service serviceID="_admin_memberApplyList" forwardServiceID="main.isAdmin">
+		<result code="0">/jsp/app/apply/A03001.jsp</result>
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	<service serviceID="admin_memberApplyList" actionClassName="admin_member_basic" mappingMethod="decodeMinistryId">
+		<result code="0" serviceID="_admin_memberApplyList"/>
+		<result code="-1" serviceID="error.notFound"/>
+	</service>
+	
+	<service serviceID="_admin_getMemberApplyList" actionClassName="admin_member_basic" mappingMethod="getMemberApplyList" />
+	<service serviceID="admin_getMemberApplyList" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_admin_getMemberApplyList"/>
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<virtualMap pattern="^admin_leaderList$" serviceID="admin_leaderApplyList" />
+	<virtualMap pattern="^admin_leaderList\/[0-9]{13,15}$" serviceID="admin_leaderApplyList" />
+	
+	<service serviceID="_admin_leaderApplyList" forwardServiceID="main.isAdmin">
+		<result code="0">/jsp/app/apply/A03005.jsp</result>
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	<service serviceID="admin_leaderApplyList" actionClassName="admin_leader_basic" mappingMethod="decodeMinistryId">
+		<result code="0" serviceID="_admin_leaderApplyList"/>
+		<result code="-1" serviceID="error.notFound"/>
+	</service>
+	
+	<service serviceID="_admin_getLeaderApplyList" actionClassName="admin_leader_basic" mappingMethod="getLeaderApplyList" />
+	<service serviceID="admin_getLeaderApplyList" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_admin_getLeaderApplyList"/>
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+
+</serviceList>

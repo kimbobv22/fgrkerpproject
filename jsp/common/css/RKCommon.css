@@ -64,28 +64,78 @@ label[jg-error-column]{
 }
 .rk-validator-error-label{
 	text-align: right;
+	color: red;
 }
 
-.rk-common-popup{}
-.rk-common-popup .popup-content-frame{
-	display: inline-block;
-	width:100%;
-	padding:4%;
+.rk-content-view
+,.rk-content-view .rk-content-header
+,.rk-content-view .rk-content-data-view
+,.rk-section-div-line{
+	position: relative;
+	overflow: auto;
 }
-.rk-common-popup .popup-content-frame .popup-label{
+
+.rk-content-view
+,.rk-section-div-line{
 	display: block;
 }
-.rk-common-popup .popup-content-frame .popup-label.popup-title{}
-.rk-common-popup .popup-content-frame .popup-label.popup-message{
-	margin-bottom: 20px;
-} 
-.rk-common-popup .popup-content-frame .popup-content{
+
+.rk-content-view
+,.rk-content-view .rk-content-data-view
+,.rk-section-div-line{
+	margin-top : 13px;
+}
+
+.rk-content-view .rk-content-data-view .rk-content-header{
+	padding-top: 13px;
+	padding-bottom: 13px;
+}
+.rk-content-view .rk-content-data-view .rk-content-header h2{
+	margin: 0px;
+}
+.rk-content-view .rk-content-data-view .rk-content-header .rk-responsive-r-fixed{
+	margin-left: 15px;
+}
+.rk-content-view .rk-content-data-view .rk-content-header .rk-responsive-l-fixed{
+	margin-right: 15px;
+}
+
+.rk-content-view .rk-content-data-view{
+	border: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: auto;
 	width: 100%;
 }
-.rk-common-popup .popup-content-frame .popup-buttenset{
-	width: 100%;
-	margin-top: 15px;
-	overflow: auto;
+
+.rk-content-view .rk-content-data-view tbody{}
+.rk-content-view .rk-content-data-view tbody tr{}
+
+.rk-content-view .rk-content-data-view tbody tr th
+,.rk-content-view .rk-content-data-view tbody tr td{
+	padding-bottom: 4px;
+	padding-top: 4px;
+	text-align: left;
+	padding-left: 10px;
+	/*padding-right: 15px;*/ 
+	vertical-align: top;
+	word-wrap: break-word;
+	word-break: break-all;
+	-webkit-line-break: after-white-space;
+}
+.rk-content-view .rk-content-data-view tbody tr th{
+	min-width: 120px;
+	width: 120px;
+	max-width: 150px;
+	font-weight: inherit;
+}
+
+.rk-photo{
+	position: relative;
+	background-image: url('../image/profile.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 
 @media (max-width:600px){
@@ -102,6 +152,12 @@ label[jg-error-column]{
 	,.rk-responsive.rk-responsive-btn{
 		min-width: 200px;
 		max-width: 300px;
+	}
+	
+	.rk-content-view .rk-content-data-view tbody tr th{
+		min-width: 100px;
+		width: 100px;
+		max-width: 120px;
 	}
 }
 
@@ -128,5 +184,11 @@ label[jg-error-column]{
 		float: none;
 		max-width: inherit;
 		min-width: inherit;
+	}
+	
+	.rk-content-view .rk-content-data-view tbody tr th{
+		min-width: 90px;
+		width: 90px;
+		max-width: 100px;
 	}
 }

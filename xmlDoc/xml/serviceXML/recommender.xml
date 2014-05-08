@@ -6,7 +6,7 @@
 	</actionClasses>
 	
 	<service serviceID="_isRecommender" actionClassName="common" mappingMethod="isRecommender" isPrivate="true"/>
-	<service serviceID="isRecommender" forwardServiceID="apply.isExistSession">
+	<service serviceID="isRecommender" forwardServiceID="member.isExistSession">
 		<result serviceID="_isRecommender"/>
 	</service>
 

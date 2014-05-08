@@ -1,0 +1,21 @@
+
+.s02003 .ui-grid-b.ministy-date .ui-block-a
+,.s02003 .ui-grid-b.ministy-date .ui-block-c{
+	width: 45%
+}
+.s02003 .ui-grid-b.ministy-date .ui-block-b{
+	width: 10%;
+	text-align: center;
+}
+
+@media all and (max-width: 600px){
+	.s02003 .ui-grid-b.ministy-date .ui-block-a{
+		width: 100%;
+	}
+	.s02003 .ui-grid-b.ministy-date .ui-block-b{
+		width: 10%
+	}
+	.s02003 .ui-grid-b.ministy-date .ui-block-c{
+		width: 90%;
+	}
+}

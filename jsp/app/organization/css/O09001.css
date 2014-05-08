@@ -1,0 +1,62 @@
+.o09001
+,.o09001 .top-search-nav
+,.o09001 .top-search-nav .total-search-bar{
+	position: relative;
+	overflow: auto;
+}
+.o09001 .top-search-nav
+,.o09001 .top-search-nav .total-search-bar{
+	display: block;
+}
+
+.o09001 .top-search-nav{
+	margin-bottom: 30px;
+}
+.o09001 .top-search-nav .total-search-bar{}
+
+.o09001 .top-search-nav .total-search-bar.ui-grid-a{}
+.o09001 .top-search-nav .total-search-bar.ui-grid-a .ui-block-a{
+	width: calc(100% - 100px);
+	width: -webkit-calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -ms-calc(100% - 100px);
+	width: -o-calc(100% - 100px);
+}
+.o09001 .top-search-nav .total-search-bar.ui-grid-a .ui-block-a .search-bar{
+	padding: 3px 0;
+}
+.o09001 .top-search-nav .total-search-bar.ui-grid-a .ui-block-b{
+	width: 100px;
+}
+
+.o09001 .org-list .org-list-row{
+	overflow: auto;
+	padding: 0 10px;
+}
+.o09001 .no-row{
+	position: relative;
+	text-align: center;
+}
+.o09001:not([rk-content-list-count='0']) .org-list{
+	display: block;
+}
+.o09001:not([rk-content-list-count='0']) .no-row{
+	display: none;
+}
+.o09001[rk-content-list-count='0'] .org-list{
+	display: none;
+}
+.o09001[rk-content-list-count='0'] .no-row{
+	display: block;
+}
+
+.o09001 .org-list .org-list-row .ui-grid-a.popup-org-list .ui-block-a{
+	width: -webkit-calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -ms-calc(100% - 100px);
+	width: -o-calc(100% - 100px);
+	width: calc(100% - 100px);
+}
+.o09001 .org-list .org-list-row .ui-grid-a.popup-org-list .ui-block-b{
+	width: 100px;
+}

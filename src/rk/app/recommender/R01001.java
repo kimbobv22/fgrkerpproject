@@ -11,9 +11,6 @@ public class R01001 extends JGAction {
 	
 	protected final String _queryXMLSetKey = "app.recommender.U01001";
 
-	@Override
-	protected void initAction(JGServiceBox arg0){}
-
 	public int isRecommender(JGServiceBox serviceBox_) throws Exception{
 		String misId_ = serviceBox_.getParameter("misId");
 		String memSid_ = RKSessionData.currentMemSid(serviceBox_);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.apply.A01007">
+
+<query keyName="getLeaderApplyTargetList">
+SELECT  MIS.MIS_ID
+       ,MIS.MIS_TITLE
+       ,MIS.MIS_DESC
+       ,MIS.START_DATE
+       ,MIS.END_DATE
+       ,ATFUNC_Z_GETGCODEDNM('S0001',MIS.STATUS) STATUS_NM
+       ,IF(APY.MIS_ID IS NULL,'N','Y') DID_WRITE
+       ,ATFUNC_A_CANLEADERMODIFY(MIS.MIS_ID, #{memSid}) CAN_MODIFY
+       ,ATFUNC_Z_GETGCODEDNM('A0003',APY.STATUS) APY_STATUS_NM
+FROM AT_MINISTRY MIS
+LEFT OUTER JOIN (
+	SELECT *
+	FROM AT_APPLY
+	WHERE 1=1
+	AND   MEM_SID = #{memSid}
+	AND   APPLY_CTG = '00001'
+) APY
+ON   MIS.MIS_ID = APY.MIS_ID
+WHERE 1=1
+AND   (ATFUNC_A_CANAPPLYTOLEADER(MIS.MIS_ID, #{memSid}) = 'Y' OR ATFUNC_A_DIDLEADERAPPLY(MIS.MIS_ID, #{memSid}) = 'Y')
+<isNotBlank columnName="searchText">
+AND   CONCAT(MIS.MIS_TITLE,'|',IFNULL(MIS.MIS_DESC,' ')) LIKE CONCAT('%',#{searchText},'%')
+</isNotBlank>
+ORDER BY MIS.STATUS ASC, MIS.START_DATE DESC
+</query>
+
+</queryList>

@@ -1,0 +1,22 @@
+.a01003 .ministry-info-frame{
+	margin-bottom: 20px;
+}
+
+.a01003 .ui-grid-b.picture-frame .ui-block-a{
+	width: 120px;
+}
+.a01003 .ui-grid-b.picture-frame .ui-block-b{
+	width: 20px;
+}
+.a01003 .ui-grid-b.picture-frame .ui-block-c{
+	width: -webkit-calc(100% - 140px);
+	width: -moz-calc(100% - 140px);
+	width: -ms-calc(100% - 140px);
+	width: -o-calc(100% - 140px);
+	width: calc(100% - 140px);
+}
+
+.a01003 .admin-handle-frame
+,.a01003 .reject-popup .btn-handle{
+	overflow: auto;
+}

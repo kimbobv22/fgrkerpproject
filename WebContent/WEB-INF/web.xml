@@ -11,7 +11,16 @@
 	
 	<servlet-mapping>
 		<servlet-name>mainServlet</servlet-name>
-		<url-pattern>/main</url-pattern>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>*.png</url-pattern>
+		<url-pattern>*.jpg</url-pattern>
+		<url-pattern>*.gif</url-pattern>
 	</servlet-mapping>
 
 	<listener>
@@ -26,9 +35,19 @@
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
+	
+	<filter>
+		<filter-name>Cross Domain Filter</filter-name>
+		<filter-class>filters.CrossDomainFilter</filter-class>
+	</filter>
 
 	<filter-mapping>
 		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>Cross Domain Filter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 

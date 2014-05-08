@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.organization.O01001">
+
+<query keyName="checkOrganization">
+SELECT  ORG_ID
+FROM AT_ORGANIZATION
+WHERE 1=1
+AND   ORG_ID = #{orgId}
+</query>
+<query keyName="getOrganizationList">
+SELECT ORG.ORG_ID
+      ,ORG.ORG_NM
+      ,ATFUNC_Z_GETGCODEDNM('O0001',ORG.ORG_CTG) ORG_CTG_NM
+      ,BSC.ADDRESS
+      ,BSC.STUFF_NM1
+      ,BSC.STUFF_PHONE1
+FROM  AT_ORGANIZATION ORG
+LEFT OUTER JOIN AT_ORGANIZATION_BSC BSC
+ON ORG.ORG_ID = BSC.ORG_ID
+WHERE 1=1
+AND   ORG.STATUS = '00001'
+<isNotBlank columnName="searchText">
+AND   CONCAT(ORG.ORG_NM,'|',IFNULL(BSC.ADDRESS,' ')) LIKE CONCAT('%',#{searchText},'%')
+</isNotBlank>
+<isNotBlank columnName="orgArea1">
+AND   ATFUNC_Z_GETADDRESS1(BSC.ADDRESS) = #{orgArea1}
+</isNotBlank>
+<isNotBlank columnName="orgArea2">
+AND   ATFUNC_Z_GETADDRESS2(BSC.ADDRESS) = #{orgArea2}
+</isNotBlank>
+ORDER BY ORG_NM ASC
+</query>
+
+</queryList>

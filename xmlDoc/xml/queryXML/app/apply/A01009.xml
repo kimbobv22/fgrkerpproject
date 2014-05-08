@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.apply.A01009">
+    
+<query keyName="canLeaderApply">
+SELECT ATFUNC_A_CANAPPLYTOLEADER(#{misId}, #{memSid}) CAN_APPLY FROM DUAL
+</query>
+
+<query keyName="checkLeaderApply">
+SELECT MEM_SID
+FROM AT_APPLY
+WHERE 1=1
+AND   MIS_ID = #{misId}
+AND   MEM_SID = #{memSid}
+</query>
+
+<query keyName="initializeLeaderApplyData">
+CALL ATPROC_A_INITIALIZELEADERAPPLY(#{misId},#{memSid})
+</query>
+
+<query keyName="getMinistryData">
+SELECT  APY.MIS_ID
+	   ,MIS.MIS_TITLE
+       ,MIS.START_DATE
+       ,MIS.END_DATE
+	   ,APY.MEM_SID
+	   ,APY.APPLY_CTG
+	   ,ATFUNC_Z_GETGCODEDNM('A0001', APY.APPLY_CTG) APPLY_CTG_NM
+       ,APY.STATUS
+       ,ATFUNC_Z_GETGCODEDNM('A0003', APY.STATUS) STATUS_NM
+       ,APY.RMK
+FROM AT_MINISTRY MIS
+LEFT OUTER JOIN (
+	SELECT APY.*
+	FROM AT_APPLY APY
+	WHERE 1=1
+	AND   APY.MIS_ID = #{misId}
+	AND   APY.MEM_SID = #{memSid}
+) APY
+ON MIS.MIS_ID = APY.MIS_ID
+WHERE 1=1
+AND   MIS.MIS_ID = #{misId}
+</query>
+
+<query keyName="getBasicData">
+SELECT BSC.*
+      ,NULL PHOTO_PATH
+      ,FALSE DID_CHANGE_PHOTO
+      ,ATFUNC_S_GETTEAMNM(BSC.MIS_ID, BSC.FAVOR_TEAM_ID1) FAVOR_TEAM_NM1
+      ,ATFUNC_S_GETTEAMNM(BSC.MIS_ID, BSC.FAVOR_TEAM_ID2) FAVOR_TEAM_NM2
+FROM AT_APPLY_L_BSC BSC
+WHERE 1=1
+AND   BSC.MIS_ID = #{misId}
+AND   BSC.MEM_SID = #{memSid}
+</query>
+
+<query keyName="getQnaData">
+SELECT QNA.*
+      ,QST.COL1 COL1_Q
+      ,QST.COL2 COL2_Q
+      ,QST.COL3 COL3_Q
+      ,QST.COL4 COL4_Q
+      ,QST.COL5 COL5_Q
+FROM AT_APPLY_L_QNA QNA
+LEFT OUTER JOIN AT_APPLY_L_QST QST
+ON QNA.MIS_ID = QST.MIS_ID
+WHERE 1=1
+AND   QNA.MIS_ID = #{misId}
+AND   QNA.MEM_SID = #{memSid}
+</query>
+
+<query keyName="submitApplyData">
+UPDATE AT_APPLY
+SET  STATUS = '00003'
+WHERE 1=1
+AND   MIS_ID = #{misId}
+AND   MEM_SID = #{memSid}
+</query>
+
+<query keyName="removeApplyData">
+DELETE FROM AT_APPLY
+WHERE 1=1
+AND   MIS_ID = #{misId}
+AND   MEM_SID = #{memSid}
+</query>
+
+<query keyName="rejectApplyData">
+UPDATE AT_APPLY
+SET   STATUS = '00005'
+     ,RMK = #{rmk}
+WHERE 1=1
+AND   MIS_ID = #{misId}
+AND   MEM_SID = #{memSid}
+</query>
+
+</queryList>

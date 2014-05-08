@@ -3,8 +3,12 @@
 
 	<actionClasses>
 		<class name="APIConfig">rk.app.common.Z03001</class>
+		<class name="cryption">rk.app.common.Z05001</class>
+		<class name="GCode">rk.app.common.Z07001</class>
 	</actionClasses>
 	
 	<service serviceID="getMapAPIKey" actionClassName="APIConfig" mappingMethod="getMapAPIKey"/>
+	<service serviceID="genCryptionKey" actionClassName="cryption" mappingMethod="genCryptionKey"/>
+	<service serviceID="getGCode" actionClassName="GCode" mappingMethod="getGCode"/>
 
 </serviceList>

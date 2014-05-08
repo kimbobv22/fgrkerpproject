@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.ministry.S01003">
+    
+<query keyName="GetDetailMinistryTeam">
+SELECT  TME.MIS_ID
+       ,TME.TEAM_ID
+	   ,TME.TEAM_NM
+       ,TME.TEAM_DESC
+       ,TME.MIS_CTG1
+       ,TME.MIS_CTG2
+       ,TME.START_DATE
+       ,TME.END_DATE
+       ,TME.STATUS
+       ,ATFUNC_Z_GETGCODEDNM('S0003',TME.MIS_CTG1) MIS_CTG1_NM
+       ,ATFUNC_Z_GETGCODEDNM('S0005',TME.MIS_CTG2) MIS_CTG2_NM
+       ,ORG.ORG_ID
+       ,ORG.ORG_NM
+       ,OBC.ADDRESS
+FROM AT_MINISTRY_TME TME
+LEFT OUTER JOIN AT_ORGANIZATION ORG
+ON   TME.ORG_ID = ORG.ORG_ID
+LEFT OUTER JOIN AT_ORGANIZATION_BSC OBC
+ON   ORG.ORG_ID = OBC.ORG_ID
+WHERE 1=1
+AND   TME.MIS_ID = #{misId}
+AND   TME.TEAM_ID = #{teamId}
+</query>
+
+<query keyName="addMinistryTeam">
+SELECT ATFUNC_S_INSERTMINISTRYTEAM(#{mis_id},#{team_nm},#{status},#{mis_ctg1},#{mis_ctg2}) FROM DUAL
+</query>
+<query keyName="updateAfterAddMinistryTeam">
+UPDATE AT_MINISTRY_TME
+SET ORG_ID = #{org_id}
+   ,START_DATE = #{start_date}
+   ,END_DATE = #{end_date}
+   ,TEAM_DESC = #{team_desc}
+WHERE 1=1
+AND   MIS_ID = #{mis_id}
+AND   TEAM_ID = #{team_id}
+</query>
+<query keyName="removeMinistryTeam">
+DELETE FROM AT_MINISTRY_TME
+WHERE 1=1
+AND   MIS_ID = #{misId}
+AND   TEAM_ID = #{teamId}
+</query>
+
+</queryList>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.ministry.S02003">
+
+
+<query keyName="checkMinistryInfo">
+SELECT MIS_ID
+FROM AT_MINISTRY
+WHERE MIS_ID = #{misId}
+</query>
+<query keyName="getMinistryInfo">
+SELECT *
+FROM AT_MINISTRY
+WHERE MIS_ID = #{misId}
+</query>
+<query keyName="addMinistryData">
+SELECT ATFUNC_S_INSERTMINISTRY(#{mis_title},#{status}) MIS_ID FROM DUAL
+</query>
+<query keyName="updateAfterAddMinistryData">
+UPDATE AT_MINISTRY
+SET  MIS_DESC = #{mis_desc}
+    ,START_DATE = #{start_date}
+    ,END_DATE = #{start_date}
+WHERE 1=1
+AND   MIS_ID = #{mis_id}
+</query>
+<query keyName="removeMinistryData">
+DELETE FROM AT_MINISTRY
+WHERE 1=1
+AND   MIS_ID = #{misId}
+</query>
+
+
+</queryList>

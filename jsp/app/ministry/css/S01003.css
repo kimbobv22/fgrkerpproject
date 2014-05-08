@@ -1,0 +1,28 @@
+.s01003{
+	
+}
+
+.s01003 .map-view{
+	height: 300px;
+}
+
+.s01003 .ui-grid-b.ministy-date .ui-block-a
+,.s01003 .ui-grid-b.ministy-date .ui-block-c{
+	width: 45%
+}
+.s01003 .ui-grid-b.ministy-date .ui-block-b{
+	width: 10%;
+	text-align: center;
+}
+
+@media all and (max-width: 600px){
+	.s01003 .ui-grid-b.ministy-date .ui-block-a{
+		width: 100%;
+	}
+	.s01003 .ui-grid-b.ministy-date .ui-block-b{
+		width: 10%
+	}
+	.s01003 .ui-grid-b.ministy-date .ui-block-c{
+		width: 90%;
+	}
+}

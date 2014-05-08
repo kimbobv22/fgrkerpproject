@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.rk-label,body,label,span,h1,h2,h3{
+.rk-label,p,body,label,span,h1,h2,h3{
 	font-family:'lucida grande','tahoma','verdana','arial','sans-serif';
 }
 
@@ -37,7 +37,7 @@
 	line-height: 17px;
 }
 
-.rk-label.rk-label-normal-l1,.rk-label.rk-label-content{
+.rk-label.rk-label-normal-l1,.rk-label.rk-label-content,p{
 	font-size: 21px;
 	line-height: 29px;
 }
@@ -81,6 +81,13 @@
 	font-weight: bold;
 }
 
+.rk-label.rk-label-word-break{
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	word-break: break-all;
+	-webkit-line-break: after-white-space;
+}
+
 @media (max-width:600px){
 	.rk-label.rk-label-small-l1,body{
 		font-size: 14px;
@@ -98,7 +105,7 @@
 		font-size: 10px;
 		line-height: 13px;
 	}
-	.rk-label.rk-label-normal-l1,.rk-label.rk-label-content{
+	.rk-label.rk-label-normal-l1,.rk-label.rk-label-content,p{
 		font-size: 19px;
 		line-height: 25px;
 	}
@@ -133,7 +140,7 @@
 }
 
 @media (max-width:380px){
-	.rk-label.rk-label-normal-l1,.rk-label.rk-label-content{
+	.rk-label.rk-label-normal-l1,.rk-label.rk-label-content,p{
 		font-size: 15px;
 		line-height: 20px;
 	}

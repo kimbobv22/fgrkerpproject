@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+
+	<actionClasses>
+		<class name="common">rk.app.organization.O01000</class>
+		<class name="basic">rk.app.organization.O01001</class>
+		<class name="detail">rk.app.organization.O01003</class>
+	</actionClasses>
+	
+	<virtualMap pattern="^[0-9]{13,15}$" serviceID="organizationInfo" />
+	
+	<service serviceID="_getOrgArea1" actionClassName="common" mappingMethod="getOrgArea1" isPrivate="true" />
+	<service serviceID="getOrgArea1" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_getOrgArea1" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	<service serviceID="_getOrgArea2" actionClassName="common" mappingMethod="getOrgArea2" isPrivate="true" />
+	<service serviceID="getOrgArea2" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_getOrgArea2" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="getOrganizationList" actionClassName="basic" mappingMethod="getOrganizationList" />
+	<service serviceID="_organizationInfo" forwardServiceID="main.isAdmin" isPrivate="true">
+		<result code="0">/jsp/app/organization/O01003.jsp</result>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	<service serviceID="organizationInfo" actionClassName="basic" mappingMethod="decodeOrgId">
+		<result code="0" serviceID="_organizationInfo" />
+		<result code="-1" serviceID="error.notFound" />
+	</service>
+	
+	<service serviceID="getOrganizationInfo" actionClassName="detail" mappingMethod="getOrganizationInfo" />
+	
+	<service serviceID="newOrganizationInfo" forwardServiceID="main.isAdmin">
+		<result code="0">/jsp/app/organization/O01003.jsp?isNew=true</result>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	<service serviceID="organizationList" forwardServiceID="main.isAdmin" isPrimary="true">
+		<result code="0">/jsp/app/organization/O01001.jsp</result>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_addOrganizationInfo" actionClassName="detail" mappingMethod="addOrganizationInfo" isPrivate="true" />
+	<service serviceID="addOrganizationInfo" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_addOrganizationInfo" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_updateOrganizationInfo" actionClassName="detail" mappingMethod="updateOrganizationInfo" isPrivate="true" />
+	<service serviceID="updateOrganizationInfo" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_updateOrganizationInfo" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	<service serviceID="_removeOrganizationInfo" actionClassName="detail" mappingMethod="removeOrganizationInfo" isPrivate="true" />
+	<service serviceID="removeOrganizationInfo" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_removeOrganizationInfo" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="popup_selectOrganization" forwardServiceID="main.isAdmin">
+		<result code="0">/jsp/app/organization/O09001.jsp</result>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+
+</serviceList>

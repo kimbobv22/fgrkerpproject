@@ -2,11 +2,105 @@
 <serviceList>
 
 	<actionClasses>
-		<class name="common">rk.app.ministry.S01001</class>
+		<class name="team">rk.app.ministry.S01001</class>
+		<class name="teamDetail">rk.app.ministry.S01003</class>
+		<class name="ministry">rk.app.ministry.S02001</class>
+		<class name="ministryDetail">rk.app.ministry.S02003</class>
 	</actionClasses>
 	
-	<service serviceID="ministry" isPrimary="true">
-		<result code="0"></result>
+	<virtualMap pattern="^[0-9]{13,15}$" serviceID="ministryTeamList" />
+	<virtualMap pattern="^[0-9]{13,15}\/[0-9]{5}$" serviceID="ministryTeamDetailView" />
+	
+	<service serviceID="getMinistryTeamList" actionClassName="team" mappingMethod="getMinistryTeamList" />
+	
+	<service serviceID="getMinistryArea1" actionClassName="team" mappingMethod="getMinistryArea1" />
+	<service serviceID="getMinistryArea2" actionClassName="team" mappingMethod="getMinistryArea2" />
+	<service serviceID="getMinistryCtg1" actionClassName="team" mappingMethod="getMinistryCtg1" />
+	<service serviceID="getMinistryCtg2" actionClassName="team" mappingMethod="getMinistryCtg2" />
+	
+	<service serviceID="ministryTeamList" actionClassName="team" mappingMethod="decodeMinistryID">
+		<result code="0">/jsp/app/ministry/S01001.jsp</result>
+		<result code="-1" serviceID="error.notFound" />
+	</service>
+	
+	<service serviceID="GetDetailMinistryTeam" actionClassName="teamDetail" mappingMethod="GetDetailMinistryTeam" />
+	<service serviceID="ministryTeamDetailView" actionClassName="teamDetail" mappingMethod="handleDetailMinistryTeamView">
+		<result code="0">/jsp/app/ministry/S01003.jsp</result>
+		<result code="1">/jsp/app/ministry/S01003M.jsp</result>
+		<result code="-1" serviceID="error.notFound" />
+	</service>
+	<service serviceID="newNinistryTeam" forwardServiceID="main.isAdmin">
+		<result code="0">/jsp/app/ministry/S01003M.jsp?isNew=true</result>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_addMinistryTeam" actionClassName="teamDetail" mappingMethod="addMinistryTeam" isPrivate="true" />
+	<service serviceID="addMinistryTeam" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_addMinistryTeam" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	<service serviceID="_updateMinistryTeam" actionClassName="teamDetail" mappingMethod="updateMinistryTeam" isPrivate="true" />
+	<service serviceID="updateMinistryTeam" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_updateMinistryTeam" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	<service serviceID="_removeMinistryTeam" actionClassName="teamDetail" mappingMethod="removeMinistryTeam" isPrivate="true" />
+	<service serviceID="removeMinistryTeam" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_removeMinistryTeam" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="getMinistryYearList" actionClassName="ministry" mappingMethod="getMinistryYearList" />
+	<service serviceID="getMinistryStatusList" actionClassName="ministry" mappingMethod="getMinistryStatusList" />
+	
+	<service serviceID="getMinistryList" actionClassName="ministry" mappingMethod="getMinistryList"/>
+	<service serviceID="ministryList" isPrimary="true">
+		<result code="0">/jsp/app/ministry/S02001.jsp</result>
+	</service>
+	
+	<service serviceID="_getMinistryData" actionClassName="ministryDetail" mappingMethod="getMinistryData" />
+	<service serviceID="getMinistryData" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_getMinistryData" />
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	<service serviceID="newMinistry" forwardServiceID="main.isAdmin">
+		<result code="0">/jsp/app/ministry/S02003.jsp?isNew=true</result>
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="_ministryView" actionClassName="ministryDetail" mappingMethod="handleMinistryInfo" isPrivate="true">
+		<result code="0">/jsp/app/ministry/S02003.jsp</result>
+		<result code="-1" serviceID="error.notFound"/>
+	</service>
+	<service serviceID="ministryView" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_ministryView"/>
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="_addMinistryData" actionClassName="ministryDetail" mappingMethod="addMinistryData" isPrivate="true" />
+	<service serviceID="addMinistryData" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_addMinistryData" />
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="_updateMinistryData" actionClassName="ministryDetail" mappingMethod="updateMinistryData" isPrivate="true"  />
+	<service serviceID="updateMinistryData" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_updateMinistryData" />
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	<service serviceID="_removeMinistryData" actionClassName="ministryDetail" mappingMethod="removeMinistryData" isPrivate="true" />
+	<service serviceID="removeMinistryData" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_removeMinistryData" />
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="popup_selectMinistry" forwardServiceID="member.isExistSession">
+		<result code="0">/jsp/app/ministry/S09002.jsp</result>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	<service serviceID="popup_selectMinistryTeam" forwardServiceID="member.isExistSession">
+		<result code="0">/jsp/app/ministry/S09001.jsp</result>
+		<result code="-1" serviceID="error.reject" />
 	</service>
 
 </serviceList>

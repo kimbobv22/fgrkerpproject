@@ -7,9 +7,6 @@ import com.jg.action.handler.JGServiceBox;
 import com.jg.main.JGMainConfig;
 
 public class Z03001 extends JGAction{
-
-	@Override
-	protected void initAction(JGServiceBox arg0){}
 	
 	protected static String _mapAPIKey = null;
 	protected String _getMapAPIKey(){

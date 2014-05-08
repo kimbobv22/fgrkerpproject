@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.ministry.S02001">
+    
+<query keyName="getMinistryYearList">
+SELECT YEAR ID
+       ,CONCAT(YEAR,'(',CNT,')') NM
+FROM (
+	SELECT DATE_FORMAT(START_DATE,'%Y') YEAR
+          ,COUNT(*) CNT
+	FROM AT_MINISTRY
+	GROUP BY YEAR
+) MST
+WHERE 1=1
+</query>
+<query keyName="getMinistryStatusList">
+SELECT STATUS ID
+       ,CONCAT(STATUS_NM,'(',CNT,')') NM
+FROM (
+	SELECT STATUS
+          ,ATFUNC_Z_GETGCODEDNM('S0001',STATUS) STATUS_NM
+          ,COUNT(*) CNT
+	FROM AT_MINISTRY
+	GROUP BY STATUS
+) MST
+WHERE 1=1
+</query>
+
+
+<query keyName="getMinistryList">
+    SELECT MIS_ID
+      ,MIS_TITLE
+      ,MIS_DESC
+	  ,START_DATE
+      ,END_DATE
+      ,STATUS
+      ,ATFUNC_Z_GETGCODEDNM('S0001',STATUS) STATUS_NM
+FROM AT_MINISTRY
+WHERE 1=1
+<isNotBlank columnName="searchText">
+AND   CONCAT(MIS_TITLE,'|',IFNULL(MIS_DESC,' ')) LIKE CONCAT('%',#{searchText},'%')
+</isNotBlank>
+<isNotBlank columnName="status">
+AND   STATUS = #{status}
+</isNotBlank>
+<isNotBlank columnName="year">
+AND   (DATE_FORMAT(START_DATE,'%Y') = #{year} OR DATE_FORMAT(END_DATE,'%Y') = #{year})
+</isNotBlank>
+ORDER BY START_DATE DESC, MIS_TITLE ASC
+</query>
+
+</queryList>

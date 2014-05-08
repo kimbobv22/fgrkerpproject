@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serviceList>
+<serviceList isPrimary="true">
 
 	<actionClasses>
 		<class name="login">rk.app.member.B01001</class>
 	</actionClasses>
 	
-	<service serviceID="login" forwardServiceID="isExistSession">
-		<result code="0" serviceId="main.home" />
-		<result code="-1">/jsp/app/member/B01001.jsp</result>
+	<service serviceID="login" forwardServiceID="isExistSession" isPrimary="true">
+		<result code="0" serviceID="main.home" />
+		<result code="-1">/jsp/app/member/B01001_1.jsp</result>
+	</service>
+	
+	<!--<service serviceID="doLogin" actionClassName="login" mappingMethod="doLogin" />-->
+	<service serviceID="doLogin" actionClassName="login" mappingMethod="doTempLogin" />
+	<service serviceID="doLogout" actionClassName="login" mappingMethod="doLogout" />
+	
+	<service serviceID="callbackOAuth" actionClassName="login" mappingMethod="callbackOAuth">
+		<result code="0">/jsp/app/member/B09001.jsp</result>
 	</service>
 	
 	<service serviceID="isExistSession" actionClassName="login" mappingMethod="isExistSession"/>
-	<service serviceID="_isAdmin" actionClassName="login" mappingMethod="isAdmin" isPrivate="true"/>
-	<service serviceID="isAdmin" forwardServiceID="isExistSession">
-		<result serviceID="_isAdmin"/>
-	</service>
-
+	
 </serviceList>

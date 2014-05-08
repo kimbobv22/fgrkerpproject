@@ -10,9 +10,6 @@ import com.jg.util.JGCommonUtils;
 
 public class Z01001 extends JGAction{
 
-	@Override
-	protected void initAction(JGServiceBox arg0){}
-	
 	protected static String _queryXMLSetKey_ = "app.common.Z01001";
 	
 	public int canAccess(JGServiceBox serviceBox_) throws Exception{

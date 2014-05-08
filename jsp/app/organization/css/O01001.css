@@ -1,0 +1,55 @@
+.o01001
+,.o01001 .top-search-nav
+,.o01001 .top-search-nav .total-search-bar{
+	position: relative;
+	overflow: auto;
+}
+.o01001 .top-search-nav
+,.o01001 .top-search-nav .total-search-bar{
+	display: block;
+}
+
+.o01001 .top-search-nav{
+	margin-bottom: 30px;
+}
+.o01001 .top-search-nav .total-search-bar{}
+
+.o01001 .top-search-nav .total-search-bar.ui-grid-a{}
+.o01001 .top-search-nav .total-search-bar.ui-grid-a .ui-block-a{
+	width: calc(100% - 100px);
+	width: -webkit-calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -ms-calc(100% - 100px);
+	width: -o-calc(100% - 100px);
+}
+.o01001 .top-search-nav .total-search-bar.ui-grid-a .ui-block-a .search-bar{
+	padding: 3px 0;
+}
+.o01001 .top-search-nav .total-search-bar.ui-grid-a .ui-block-b{
+	width: 100px;
+}
+
+.o01001 .org-list .org-list-row{
+	overflow: auto;
+	padding: 0 10px;
+}
+.o01001 .no-row{
+	position: relative;
+	text-align: center;
+}
+.o01001:not([rk-content-list-count='0']) .org-list{
+	display: block;
+}
+.o01001:not([rk-content-list-count='0']) .no-row{
+	display: none;
+}
+.o01001[rk-content-list-count='0'] .org-list{
+	display: none;
+}
+.o01001[rk-content-list-count='0'] .no-row{
+	display: block;
+}
+
+.o01001 .org-handle-btn{
+	overflow: auto;
+}

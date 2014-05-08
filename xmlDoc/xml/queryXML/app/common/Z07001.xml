@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.common.Z07001">
+
+<query keyName="getGCode">
+<isEquals columnName="add_title" columnValue="true">
+SELECT '' CODE_DID 
+      ,CODE_NM CODE_DNM
+      ,-1 SORT_CHAR
+	  ,NULL COL1
+      ,NULL COL2
+      ,NULL COL3
+	  ,NULL COL4
+FROM AT_GCODE
+WHERE 1=1
+AND   CODE_ID = #{code_id}
+UNION ALL
+</isEquals>
+SELECT CODE_DID
+      ,CODE_DNM
+	  ,SORT_CHAR
+	  ,COL1
+	  ,COL2
+	  ,COL3
+	  ,COL4
+FROM (SELECT * FROM AT_GCODE_DTL
+WHERE 1=1
+AND   USE_YN = 'Y'
+AND   CODE_ID = #{code_id}
+<isNotNull columnName="col1">
+AND   COL1 = #{col1}
+</isNotNull>
+<isNotNull columnName="col2">
+AND   COL2 = #{col2}
+</isNotNull>
+<isNotNull columnName="col3">
+AND   COL3 = #{col3}
+</isNotNull>
+<isNotNull columnName="col4">
+AND   COL4 = #{col4}
+</isNotNull>
+ORDER BY SORT_CHAR ASC) MST
+</query>
+
+</queryList>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><%
 
-%><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+%><!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="/jsp/common/RKHead.jsp" flush="true"></jsp:include>
@@ -15,7 +15,7 @@
 		</div>
 		<div class="content-frame rk-responsive-p">
 			<div class="button-set">
-				<a href="javascript:void(0);" class="ui-btn ui-btn-c rk-responsive rk-responsive-btn rk-label rk-label-normal-l1">ACTing 로그인</a>
+				<a href="javascript:atFuncB01001_doLogin();" class="ui-btn ui-btn-c rk-responsive rk-responsive-btn rk-label rk-label-normal-l1">ACTing계정으로 로그인</a>
 			</div>
 		</div>
 	</div>

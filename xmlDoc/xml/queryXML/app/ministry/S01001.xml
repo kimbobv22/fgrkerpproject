@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.ministry.S01001">
+    
+<query keyName="getCurrentMinistryID">
+SELECT ATFUNC_S_GETCURRENTMISID() MIS_ID FROM DUAL
+</query>
+
+<query keyName="getMinistryArea1">
+SELECT MST.AREA1 ID
+       ,CONCAT(MST.AREA1,'(',COUNT(*),')') NM
+FROM (
+	SELECT ATFUNC_Z_GETADDRESS1(ADDRESS) AREA1
+	FROM AT_MINISTRY_TME TME
+	LEFT OUTER JOIN AT_ORGANIZATION_BSC ORG
+	ON TME.ORG_ID = ORG.ORG_ID
+	WHERE 1=1
+	AND   TME.MIS_ID = #{misId}
+<isEquals columnName="isAdmin" columnValue="true" isReverse="true">
+	AND   TME.STATUS IN (SELECT CODE_DID FROM AT_GCODE_DTL WHERE CODE_ID = 'S0007' AND COL1 = 'Y')
+</isEquals>
+) MST
+WHERE 1=1
+GROUP BY MST.AREA1
+ORDER BY MST.AREA1 ASC
+</query>
+<query keyName="getMinistryArea2">
+SELECT AREA2 ID
+       ,CONCAT(MST.AREA2,'(',COUNT(*),')') NM
+FROM (
+	SELECT ATFUNC_Z_GETADDRESS1(ADDRESS) AREA1
+		   ,ATFUNC_Z_GETADDRESS2(ADDRESS) AREA2
+	FROM AT_MINISTRY_TME TME
+	LEFT OUTER JOIN AT_ORGANIZATION_BSC ORG
+	ON TME.ORG_ID = ORG.ORG_ID
+	WHERE 1=1
+<isEquals columnName="isAdmin" columnValue="true" isReverse="true">
+	AND   TME.STATUS IN (SELECT CODE_DID FROM AT_GCODE_DTL WHERE CODE_ID = 'S0007' AND COL1 = 'Y')
+</isEquals>
+	AND   TME.MIS_ID = #{misId}
+) MST
+WHERE 1=1
+AND   MST.AREA1 = #{misArea1}
+GROUP BY MST.AREA1, MST.AREA2
+ORDER BY MST.AREA1 ASC, MST.AREA2 ASC
+</query>
+
+<query keyName="getMinistryCtg1">
+SELECT MIS_CTG1 ID
+	   ,CONCAT(CODE_DNM,'(',COUNT(*),')') NM
+FROM AT_MINISTRY_TME TME
+LEFT OUTER JOIN AT_GCODE_DTL GCD
+ON  TME.MIS_CTG1 = GCD.CODE_DID
+AND GCD.CODE_ID = 'S0003'
+WHERE 1=1
+AND   TME.MIS_ID = #{misId}
+<isEquals columnName="isAdmin" columnValue="true" isReverse="true">
+AND   TME.STATUS IN (SELECT CODE_DID FROM AT_GCODE_DTL WHERE CODE_ID = 'S0007' AND COL1 = 'Y')
+</isEquals>
+GROUP BY TME.MIS_CTG1
+ORDER BY GCD.SORT_CHAR ASC
+</query>
+
+<query keyName="getMinistryCtg2">
+SELECT MIS_CTG2 ID
+	   ,CONCAT(CODE_DNM,'(',COUNT(*),')') NM
+FROM AT_MINISTRY_TME TME
+LEFT OUTER JOIN AT_GCODE_DTL GCD
+ON  TME.MIS_CTG2 = GCD.CODE_DID
+AND GCD.CODE_ID = 'S0005'
+WHERE 1=1
+AND   TME.MIS_ID = #{misId}
+AND   TME.MIS_CTG1 = #{misCtg1}
+<isEquals columnName="isAdmin" columnValue="true" isReverse="true">
+AND   TME.STATUS IN (SELECT CODE_DID FROM AT_GCODE_DTL WHERE CODE_ID = 'S0007' AND COL1 = 'Y')
+</isEquals>
+GROUP BY TME.MIS_CTG1, TME.MIS_CTG2
+ORDER BY GCD.SORT_CHAR ASC
+</query>
+
+<query keyName="getMinistryTitle">
+SELECT MIS_TITLE
+FROM AT_MINISTRY
+WHERE MIS_ID = #{misId}
+</query>
+
+<query keyName="getMinistryTeamList">
+SELECT MIS_ID
+       ,TEAM_ID
+       ,TEAM_NM
+       ,MIS_CTG1_NM
+       ,MIS_CTG2_NM
+       ,ADDRESS
+       ,STUFF_NM1
+       ,STUFF_NM2
+FROM (
+	SELECT  MIS_ID
+	       ,TEAM_ID
+	       ,TEAM_NM
+	       ,MIS_CTG1
+	       ,MIS_CTG2
+	       ,ATFUNC_Z_GETGCODEDNM('S0003',MIS_CTG1) MIS_CTG1_NM
+	       ,ATFUNC_Z_GETGCODEDNM('S0005',MIS_CTG2) MIS_CTG2_NM
+	       ,STUFF_NM1
+	       ,STUFF_NM2
+	       ,ADDRESS
+	       ,ATFUNC_Z_GETADDRESS1(ORG.ADDRESS) MIS_AREA1
+	       ,ATFUNC_Z_GETADDRESS2(ORG.ADDRESS) MIS_AREA2
+	FROM AT_MINISTRY_TME TME
+	LEFT OUTER JOIN AT_ORGANIZATION_BSC ORG
+	ON TME.ORG_ID = ORG.ORG_ID
+	WHERE 1=1
+	AND   TME.STATUS = '00001'
+<isEquals columnName="isAdmin" columnValue="true" isReverse="true">
+	AND   TME.STATUS IN (SELECT CODE_DID FROM AT_GCODE_DTL WHERE CODE_ID = 'S0007' AND COL1 = 'Y')
+</isEquals>
+	AND   TME.MIS_ID = #{misId}
+) MST
+WHERE 1=1 
+<isNotBlank columnName="searchText">
+AND   CONCAT(TEAM_NM,'|',IFNULL(ADDRESS,' '),'|',IFNULL(STUFF_NM1,' '),'|',IFNULL(STUFF_NM2,' ')) LIKE CONCAT('%',#{searchText},'%')
+</isNotBlank>
+<isNotBlank columnName="misCtg1">
+AND   MIS_CTG1 = #{misCtg1}
+</isNotBlank>
+<isNotBlank columnName="misCtg2">
+AND   MIS_CTG2 = #{misCtg2}
+</isNotBlank>
+<isNotBlank columnName="misArea1">
+AND   MIS_AREA1 = #{misArea1}
+</isNotBlank>
+<isNotBlank columnName="misArea2">
+AND   MIS_AREA2 = #{misArea2}
+</isNotBlank>
+ORDER BY MIS_CTG1 ASC, MIS_CTG2 ASC, TEAM_NM ASC
+</query>
+
+</queryList>

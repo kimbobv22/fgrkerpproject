@@ -1,0 +1,91 @@
+.a03005
+,.a03005 .top-search-nav
+,.a03005 .top-search-nav .total-search-bar{
+	position: relative;
+	overflow: auto;
+}
+.a03005 .top-search-nav
+,.a03005 .top-search-nav .total-search-bar{
+	display: block;
+}
+
+.a03005 .top-search-nav{
+	margin-bottom: 30px;
+}
+.a03005 .top-search-nav .ministry-select-grid.ui-grid-a .ui-block-a{
+	width: calc(100% - 100px);
+	width: -webkit-calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -ms-calc(100% - 100px);
+	width: -o-calc(100% - 100px);
+}
+.a03005 .top-search-nav .ministry-select-grid.ui-grid-a .ui-block-b{
+	width: 100px;
+}
+.a03005 .top-search-nav .total-search-bar.ui-grid-c .ui-block-a
+,.a03005 .top-search-nav .total-search-bar.ui-grid-c .ui-block-b{
+	width: 25%;
+}
+.a03005 .top-search-nav .total-search-bar.ui-grid-c .ui-block-c{
+	width: calc(50% - 100px);
+	width: -webkit-calc(50% - 100px);
+	width: -moz-calc(50% - 100px);
+	width: -ms-calc(50% - 100px);
+	width: -o-calc(50% - 100px);
+}
+.a03005 .top-search-nav .total-search-bar.ui-grid-c .ui-block-c .search-bar{
+	padding: 3px 0;
+}
+.a03005 .top-search-nav .total-search-bar.ui-grid-c .ui-block-d{
+	width: 100px;
+}
+
+.a03005 .apply-list .apply-list-row{
+	overflow: auto;
+	padding: 10px;
+}
+.a03005 .apply-list .apply-list-row .apply-list-row-item{
+	margin-top: 10px;
+}
+.a03005 .apply-list .apply-list-row .apply-list-row-item:FIRST-CHILD{
+	margin-top: 0px;
+}
+
+.a03005 .apply-list .apply-list-row .apply-list-row-item .ui-grid-a.basic-grid .ui-block-a{
+	width: 75px;
+}
+.a03005 .apply-list .apply-list-row .apply-list-row-item .ui-grid-a.basic-grid .ui-block-b{
+	padding-left: 10px;
+	width: calc(100% - 75px);
+	width: -webkit-calc(100% - 75px);
+	width: -moz-calc(100% - 75px);
+	width: -ms-calc(100% - 75px);
+	width: -o-calc(100% - 75px);
+}
+
+.a03005 .apply-list .apply-list-row .apply-list-row-item .ui-grid-a.basic-grid .ui-block-a .rk-photo{
+	height: 90px;
+}
+
+.a03005 .no-row{
+	position: relative;
+	text-align: center;
+}
+
+@media all and (max-width: 600px){
+	.a03005 .top-search-nav .total-search-bar.ui-grid-c .ui-block-a
+	,.a03005 .top-search-nav .total-search-bar.ui-grid-c .ui-block-b{
+		width: 50%;
+	}
+	
+	.a03005 .top-search-nav .total-search-bar.ui-grid-c .ui-block-c{
+		width: calc(100% - 100px);
+		width: -webkit-calc(100% - 100px);
+		width: -moz-calc(100% - 100px);
+		width: -ms-calc(100% - 100px);
+		width: -o-calc(100% - 100px);
+	}
+	.a03005 .top-search-nav .total-search-bar.ui-grid-c .ui-block-d{
+		width: 100px;
+	}
+}

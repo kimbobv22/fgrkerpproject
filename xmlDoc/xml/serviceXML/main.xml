@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serviceList isPrimary="true">
+<serviceList>
 
 	<actionClasses>
 		<class name="common">rk.app.main.M01001</class>
+		<class name="menu">rk.app.main.M03001</class>
 	</actionClasses>
 	
-	<service serviceID="home" isPrimary="true">
-		<result>/jsp/app/main/M01001.jsp</result>
+	<service serviceID="isOverMember" actionClassName="common" mappingMethod="isOverMember" />
+	<service serviceID="isOverAMember" actionClassName="common" mappingMethod="isOverAMember" />
+	<service serviceID="isOverALeader" actionClassName="common" mappingMethod="isOverALeader" />
+	<service serviceID="isOverRecommender" actionClassName="common" mappingMethod="isOverRecommender" />
+	<service serviceID="isOverAdmin" actionClassName="common" mappingMethod="isOverAdmin" />
+	
+	<service serviceID="isLessMember" actionClassName="common" mappingMethod="isLessMember" />
+	<service serviceID="isLessAMember" actionClassName="common" mappingMethod="isLessAMember" />
+	<service serviceID="isLessALeader" actionClassName="common" mappingMethod="isLessALeader" />
+	<service serviceID="isLessRecommender" actionClassName="common" mappingMethod="isLessRecommender" />
+	<service serviceID="isLessAdmin" actionClassName="common" mappingMethod="isLessAdmin" />
+	
+	<service serviceID="isMember" actionClassName="common" mappingMethod="isEqualsMember" />
+	<service serviceID="isAMember" actionClassName="common" mappingMethod="isEqualsAMember" />
+	<service serviceID="isALeader" actionClassName="common" mappingMethod="isEqualsALeader" />
+	<service serviceID="isRecommender" actionClassName="common" mappingMethod="isEqualsRecommender" />
+	<service serviceID="isAdmin" actionClassName="common" mappingMethod="isEqualsAdmin" />
+	
+	<service serviceID="home" actionClassName="menu" mappingMethod="getMenuList" isPrimary="true">
+		<result>/jsp/app/main/M03001.jsp</result>
 	</service>
 
 </serviceList>

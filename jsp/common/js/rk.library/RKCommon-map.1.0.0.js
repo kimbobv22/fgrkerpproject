@@ -15,7 +15,7 @@
 				that_._loadingMapAPI = false;
 			});
 			
-			JGModule.ajax(RKCommon.requestURLKey,{
+			JGService.ajax(RKCommon.requestURLKey,{
 				data : {
 					srvID : "getMapAPIKey"
 				},success : function(result_){
@@ -71,7 +71,7 @@
 						callback_();
 					}else that_._lazyLoad(callback_);
 				});
-			},100);
+			},1000);
 		},_create : function(){
 			var that_ = this;
 			var element_ = this.element;
@@ -121,7 +121,7 @@
 				}
 				
 				element_.trigger("rkmapviewreload");
-				if(!Object.isNull(callback_)) callback_.apply(element_);
+				if(!isNull(callback_)) callback_.apply(element_);
 			});
 		}
 	});

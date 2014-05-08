@@ -1,0 +1,60 @@
+.s09002
+,.s09002 .top-search-nav
+,.s09002 .top-search-nav .total-search-bar{
+	position: relative;
+	overflow: auto;
+}
+.s09002 .top-search-nav
+,.s09002 .top-search-nav .total-search-bar{
+	display: block;
+}
+
+.s09002 .top-search-nav{
+	margin-bottom: 30px;
+}
+
+.s09002 .top-search-nav .total-search-bar.ui-grid-a .ui-block-a{
+	width: calc(100% - 100px);
+	width: -webkit-calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -ms-calc(100% - 100px);
+	width: -o-calc(100% - 100px);
+}
+.s09002 .top-search-nav .total-search-bar.ui-grid-a .ui-block-a .search-bar{
+	padding: 3px 0;
+}
+.s09002 .top-search-nav .total-search-bar.ui-grid-a .ui-block-b{
+	width: 100px;
+}
+
+.s09002 .ministry-list .ministry-list-row{
+	overflow: auto;
+	padding: 0 10px;
+}
+.s09002 .no-row{
+	position: relative;
+	text-align: center;
+}
+.s09002:not([rk-content-list-count='0']) .ministry-list{
+	display: block;
+}
+.s09002:not([rk-content-list-count='0']) .no-row{
+	display: none;
+}
+.s09002[rk-content-list-count='0'] .ministry-list{
+	display: none;
+}
+.s09002[rk-content-list-count='0'] .no-row{
+	display: block;
+}
+
+.s09002 .ministry-list .ui-grid-a.ministry-grid .ui-block-a{
+	width: calc(100% - 100px);
+	width: -webkit-calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -ms-calc(100% - 100px);
+	width: -o-calc(100% - 100px);
+}
+.s09002 .ministry-list .ui-grid-a.ministry-grid .ui-block-b{
+	width: 100px;
+}

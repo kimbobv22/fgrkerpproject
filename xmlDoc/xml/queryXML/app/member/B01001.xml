@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<queryList keyName="app.common.Z01001">
+<queryList keyName="app.member.B01001">
+
 
 <query keyName="isAdmin">
-SELECT ATFUNC_B_ISADMIN(#{memSid}) ADM_LVL FROM DUAL
+SELECT ATFUNC_M_ISADMIN(#{memSid}) IS_ADMIN FROM DUAL
+</query>
+
+<query keyName="checkMemberData">
+SELECT MEM_SID
+FROM  AT_MEMBER MEM
+WHERE 1=1
+AND  USER_SID = #{userSid}
+</query>
+
+<query keyName="addMemberData">
+SELECT ATFUNC_B_INSERTMEMBER(#{userSid}) MEM_SID FROM DUAL
+</query>
+
+<query keyName="temp_checkACTingUser">
+SELECT USR.USER_SID
+      ,IF(USR.PASSWORD = PASSWORD(#{password}),'Y','N') CHECK_PASS
+FROM  FGACTONE.AT_USER USR
+WHERE 1=1
+AND   (USR.USER_ID = #{id} OR USR.EMAIL = #{id})
 </query>
 
 </queryList>

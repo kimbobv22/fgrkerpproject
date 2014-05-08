@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.apply.A03005">
+
+<query keyName="getLeaderApplyList">
+SELECT  APY.MIS_ID
+       ,APY.MEM_SID
+       ,BSC.PHOTO_ID
+       ,BSC.NAME
+       ,BSC.PHONE1
+       ,BSC.PHONE2
+       ,BSC.BELONG_CTG1
+       ,BSC.BELONG_CTG2
+       ,BSC.BELONG_CTG3
+       ,APY.STATUS
+       ,ATFUNC_Z_GETGCODEDNM('A0003',APY.STATUS) STATUS_NM
+FROM AT_APPLY APY
+LEFT OUTER JOIN AT_APPLY_L_BSC BSC
+ON   APY.MIS_ID = BSC.MIS_ID
+AND  APY.MEM_SID = BSC.MEM_SID
+WHERE 1=1
+AND   APY.MIS_ID = #{mis_id}
+AND   APY.APPLY_CTG = '00003'
+<isnotblank columnName="status">
+AND   APY.STATUS = #{status}
+</isnotblank>
+<isnotblank columnName="belong_ctg1">
+AND   BSC.BELONG_CTG1 = #{belong_ctg1}
+</isnotblank>
+<isnotblank columnName="belong_ctg2">
+AND   BSC.BELONG_CTG2 = #{belong_ctg2}
+</isnotblank>
+<isnotblank columnName="belong_ctg3">
+AND   BSC.BELONG_CTG3 = #{belong_ctg3}
+</isnotblank>
+<isnotblank columnName="searchText">
+AND   CONCAT(BSC.NAME,'|', IFNULL(BSC.PHONE1,' '),'|',IFNULL(BSC.PHONE2,' ')) LIKE CONCAT('%',#{searchText},'%')
+</isnotblank>
+<isequals columnName="order_ctg" columnValue="00001">
+ORDER BY APY.MOD_DATE DESC
+</isequals>
+<isequals columnName="order_ctg" columnValue="00003">
+ORDER BY BSC.NAME ASC
+</isequals>
+</query>
+
+</queryList>

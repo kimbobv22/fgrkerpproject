@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.apply.A01000">
+
+<query keyName="checkMemberApply">
+SELECT  ATFUNC_A_CANAPPLYTOMEMBER(MIS_ID, MEM_SID) CAN_APPLY
+       ,ATFUNC_A_CANMODIFY(MIS_ID, MEM_SID) CAN_MODIFY
+       ,APPLY_CTG
+FROM AT_APPLY
+WHERE 1=1
+AND   MIS_ID = #{misid}
+AND   MEM_SID = #{memSid}
+</query>
+
+<query keyName="checkLeaderApply">
+SELECT  ATFUNC_A_CANAPPLYTOLEADER(MIS_ID, MEM_SID) CAN_APPLY
+       ,ATFUNC_A_CANMODIFY(MIS_ID, MEM_SID) CAN_MODIFY
+       ,APPLY_CTG
+FROM AT_APPLY
+WHERE 1=1
+AND   MIS_ID = #{misid}
+AND   MEM_SID = #{memSid}
+</query>
+
+</queryList>

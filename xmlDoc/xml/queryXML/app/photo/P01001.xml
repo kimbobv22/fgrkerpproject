@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.photo.P01001">
+
+<query keyName="getPhotoPath">
+SELECT ATFUNC_P_GETPHOTOPATH(#{photoId}) PHOTO_PATH FROM DUAL
+</query>
+
+<query keyName="addPhoto">
+SELECT ATFUNC_P_ADDPHOTO(#{memSid},#{photoPath}) PHOTO_ID FROM DUAL
+</query>
+
+</queryList>

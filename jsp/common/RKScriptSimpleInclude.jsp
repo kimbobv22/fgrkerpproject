@@ -1,5 +1,6 @@
 <%@page import="rk.common.utils.RKServletUtils"%><%@page import="com.jg.util.JGServletUtils"%><%@page import="com.jg.util.JGCommonUtils"%><%@page import="com.jg.util.JGStringUtils"%><%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><%
 	String targetPath_ = (String)JGCommonUtils.NVL(request.getParameter("targetPath"), RKServletUtils.getRequestPath(request));
+	targetPath_ = JGServletUtils.getServerURL(request)+targetPath_;
 	String pageName_ = request.getParameter("pageName");
 	String target_ = request.getParameter("target");
 	if(!JGStringUtils.isBlank(target_)){

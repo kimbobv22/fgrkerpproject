@@ -3,6 +3,8 @@
 	<jsp:param value="jsp/common/view" name="targetPath"/>
 	<jsp:param value="default" name="pageName"/>
 </jsp:include>
-<div id="rkDefaultTopFrame" class="rk-default-top-frame rk-color-gray9-back rk-opacity-l90">
-<a href="javascript:void(0);" class="main-logo rk-icon rk-icon-main-logo rk-image-btn"></a>
+<div data-role="header" data-position="fixed" data-theme="none" class="rk-default-header rk-color-gray9-back rk-opacity-l90" id="rkDefaultTopHeader">
+	<div class="rk-default-header-frame">
+		<a href="javascript:JGService.forwardService(RKCommon.requestURLKey_root);" class="main-logo rk-icon rk-icon-main-logo rk-image-btn"></a>
+	</div>
 </div>

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <serviceList>
-
+    
+	<actionClasses>
+		<class name="error">rk.app.common.Z09909</class>
+	</actionClasses>
+	
+	<service serviceID="error" actionClassName="error" mappingMethod="error" />
+	<service serviceID="reject" actionClassName="error" mappingMethod="reject" />
+	<service serviceID="notFound" actionClassName="error" mappingMethod="notFound" />
 	
 </serviceList>

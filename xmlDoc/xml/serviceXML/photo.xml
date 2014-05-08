@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+
+	<actionClasses>
+		<class name="common">rk.app.photo.P01001</class>
+	</actionClasses>
+	
+	<virtualMap pattern="^[0-9]{15}$" serviceID="getPhoto" />
+	
+	<service serviceID="getPhoto" actionClassName="common" mappingMethod="getPhoto" />
+	
+	<service serviceID="_uploadPhoto" actionClassName="common" mappingMethod="uploadPhoto" isPrivate="true"/>
+	<service serviceID="uploadPhoto" forwardServiceID="member.isExistSession">
+		<result code="0" serviceID="_uploadPhoto"/>
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+
+</serviceList>

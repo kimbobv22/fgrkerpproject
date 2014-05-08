@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="xmlDoc"/>
+	<classpathentry excluding="*" kind="src" path="xmlDoc"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 6 (MacOS X Default)">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
@@ -20,13 +20,13 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-lang3-3.2.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jdom.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/JGDBConnection.1.0.0.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/JGServlet.1.0.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsoup-1.7.3.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.9.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.27-bin.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/JGDataset.1.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/JGServlet.2.1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/JGDataset.1.1.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -19,8 +19,8 @@ public class RKLogHandler extends JGLogHandlerDef{
 		try{
 			_rootLogger = org.apache.log4j.Logger.getRootLogger();
 			
-			String logFilePath_ = JGMainConfig.sharedConfig().getCustomData("jg.custom.log4jFilePath");
-			String logLayout_ = JGMainConfig.sharedConfig().getCustomData("jg.custom.log4jLogLayout");
+			String logFilePath_ = JGMainConfig.sharedConfig().getCustomData("log4j-filepath");
+			String logLayout_ = JGMainConfig.sharedConfig().getCustomData("log4j-layout");
 			
 			File logFileDir_ = new File(logFilePath_);
 			new File(logFileDir_.getParent()).mkdirs();
@@ -36,7 +36,7 @@ public class RKLogHandler extends JGLogHandlerDef{
 			fileAppender_.setAppend(true);
 			_rootLogger.addAppender(fileAppender_);
 		}catch(Exception ex_){
-			System.err.println("Can't initialize ATLogHandler");
+			System.err.println("Can't initialize RKLogHandler");
 			ex_.printStackTrace();
 			_rootLogger = null;
 		}

@@ -1,17 +1,5 @@
 @charset "UTF-8";
 
-*{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-a:not(.ui-btn)
-,a:not(.ui-btn):HOVER
-,a:not(.ui-btn):VISITED
-,a:not(.ui-btn):ACTIVE{
-	font-weight: normal !important;
-}
 a:not(.ui-btn){
 	text-decoration: none;
 }
@@ -19,28 +7,4 @@ a:not(.ui-btn){
 a:not(.ui-btn):HOVER
 ,a:not(.ui-btn):ACTIVE{
 	text-decoration: underline;
-}
-
-hr{
-	border: 0;
-	height: 1px;
-	width: 92%
-}
-label,span{word-break: break-all;}
-
-body{
-	position: relative;
-	display: block;
-}
-
-body._jgnodepopupui-background-scrollable
-body[rk-block-scroll='true']{
-	overflow: auto;
-	overflow-x: hidden !important;
-	overflow-y: auto;
-	-webkit-overflow-scrolling: touch;
-	-moz-overflow-scrolling: touch;
-	-ms-overflow-scrolling: touch;
-	-o-overflow-scrolling: touch;
-	overflow-scrolling: touch;
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.organization.O01003">
+
+
+<query keyName="getOrganizationInfo">
+SELECT *
+FROM AT_ORGANIZATION
+WHERE 1=1
+AND   ORG_ID = #{orgId}
+</query>
+<query keyName="getOrganizationBscInfo">
+SELECT *
+FROM AT_ORGANIZATION_BSC
+WHERE 1=1
+AND   ORG_ID = #{orgId}
+</query>
+
+<query keyName="addOrganization">
+SELECT ATFUNC_O_ADDORGANIZATION(#{org_nm}, #{org_ctg}, #{status}) ORG_ID FROM DUAL
+</query>
+<query keyName="updateAfterAddOrganization">
+UPDATE AT_ORGANIZATION 
+SET ORG_DESC = #{org_desc}
+WHERE 1=1
+AND   ORG_ID = #{org_id}
+</query>
+
+<query keyName="addOrganizationBsc">
+INSERT INTO AT_ORGANIZATION_BSC(
+	ORG_ID
+	,ADDRESS
+	,STUFF_NM1
+	,STUFF_PHONE1
+	,STUFF_NM2
+	,STUFF_PHONE2
+	,STUFF_NM3
+	,STUFF_PHONE3
+	,EMAIL
+	,REMARK
+	,REG_DATE
+)VALUES(
+	#{org_id}
+	,#{address}
+	,#{stuff_nm1}
+	,#{stuff_phone1}
+	,#{stuff_nm2}
+	,#{stuff_phone2}
+	,#{stuff_nm3}
+	,#{stuff_phone3}
+	,#{email}
+	,#{remark}
+	,NOW()
+)
+</query>
+
+<query keyName="removeOrganizationInfo">
+DELETE FROM AT_ORGANIZATION
+WHERE 1=1
+AND   ORG_ID = #{orgId}
+</query>
+
+</queryList>

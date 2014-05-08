@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.main.M03001">
+
+<query keyName="getMenuList">
+SELECT  MNU.*
+       ,ATFUNC_M_GETMENUTREELVL(MNU.MENU_ID) LVL
+       ,ATFUNC_M_GETMENUTREEID(MNU.MENU_ID) TREEID
+FROM AT_MENU MNU
+WHERE 1=1
+AND   ATFUNC_M_GETACCESSLVL(MNU.ACCESS_CTG) &lt;= ATFUNC_M_GETACCESSLVL_MEMSID(#{accessSid})
+ORDER BY TREEID ASC
+</query>
+</queryList>
