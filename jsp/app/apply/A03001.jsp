@@ -13,9 +13,11 @@
 <div data-role="page">
 	<jsp:include page="/jsp/common/view/RKDefault.jsp" flush="true" />
 	<div data-role="content">
-		<div id="a03001" class="a03001 rk-responsive-p" rk-mis-id="<%=misId_%>" rk-mis-title="<%=misTitle_%>">
-			<h3>팀원지원 현황</h3>
-			<div class="top-search-nav" jg-dataset="a03001CondData">
+		<div id="a03001" class="a03001" rk-mis-id="<%=misId_%>" rk-mis-title="<%=misTitle_%>">
+			<div class="rk-responsive-p">
+				<h3>팀원지원 현황</h3>
+			</div>
+			<div class="top-search-nav rk-responsive-p" jg-dataset="a03001CondData">
 				<div>
 					<div class="ui-grid-a ministry-select-grid">
 						<div class="ui-block-a"><a href="javascript:atFuncA03001_selectMinistry();" class="ui-btn">##fx:(isBlank(##mis_id##) ? '사역을 선택하세요' : ##mis_title##)</a></div>
@@ -43,29 +45,38 @@
 					</div>
 				</div>
 			</div>
-			<div class="no-row"><h4></h4></div>
-			<div class="apply-list" jg-dataset="a03001ApplyData">
-				<div class="apply-list-row rk-color-white-back-cursor rk-color-gray2-border-b-last-child rk-color-gray2-border-t">
-					<a href="##fx:'javascript:atFuncA03001_goApply(##dataset.rowIndex##);'" class="apply-list-row-item">
-						<div class="ui-grid-a basic-grid">
-							<div class="ui-block-a">
-								<div rk-photo rk-photo-id="##fx:##photo_id##" rk-photo-readonly="readonly"></div>
-							</div>
-							<div class="ui-block-b">
-								<span class="rk-label rk-label-normal-l1 rk-label-bold">##fx:BLK(##name##,"이름없음")</span>
-								<span class="rk-label rk-label-small-l2 rk-color-gray5">/</span>
-								<span jg-column="status_nm" class="rk-label rk-label-small-l2 rk-color-gray6"></span>
-							</div>
-						</div>
-					</a>
-					<div class="ui-grid-a ui-responsive rk-label rk-label rk-label-small-l3 rk-color-gray6 apply-list-row-item">
-						<div class="ui-block-a"><span>##fx:BLK(##phone1##,"개인연락처없음")</span></div>
-						<div class="ui-block-b"><span>##fx:BLK(##phone2##,"비상연락처없음")</span></div>
+			<div class="no-row rk-responsive-p"><h4 jg-dataset-count="a03001ApplyData" jg-dataset-count-pattern="총 #개" jg-dataset-count-zero="검색된 지원서가 없습니다"></h4></div>
+			<div class="ui-content" jg-dataset="a03001ApplyData">
+				<div class="apply-list ui-grid-e rk-color-white-back-cursor rk-color-gray2-border-b-last-child rk-color-gray2-border-t">
+					<div class="ui-block-a">
+						<div rk-photo rk-photo-id="##fx:##photo_id##" rk-photo-readonly="readonly"></div>
 					</div>
-					<div class="ui-grid-b ui-responsive rk-label rk-label rk-label-small-l1 apply-list-row-item">
-						<div class="ui-block-a"><span rk-belong-label="##fx:##belong_ctg1##" rk-belong-column="BELONG_NM" rk-belong-blk="소속1없음"></span></div>
-						<div class="ui-block-b"><span rk-belong-label="##fx:##belong_ctg2##" rk-belong-column="BELONG_NM" rk-belong-blk="소속2없음"></span></div>
-						<div class="ui-block-c"><span rk-belong-label="##fx:##belong_ctg3##" rk-belong-column="BELONG_NM" rk-belong-blk="소속3없음"></span></div>
+					<div class="ui-block-b">
+						<span class="rk-label rk-label-small-l3 rk-label-bold rk-color-gray7">##fx:BLK(##name##,"이름없음")</span>
+						<span class="rk-label rk-label-small-l3 rk-color-gray5">
+							##fx:"  "+##status_nm##
+						</span><br/>
+						<!--<span rk-belong-label="##fx:##belong_ctg1##" rk-belong-column="BELONG_NM" rk-belong-blk="소속2없음"></span>-->
+						<span class="rk-label rk-label-small-l4 rk-color-gray6" rk-belong-label="##fx:##belong_ctg2##" rk-belong-column="BELONG_NM" rk-belong-blk="소속2없음"></span>
+						<span class="rk-label rk-label-small-l4 rk-color-gray6">/</span>
+						<span class="rk-label rk-label-small-l4 rk-color-gray6" rk-belong-label="##fx:##belong_ctg3##" rk-belong-column="BELONG_NM" rk-belong-blk="소속3없음"></span>
+					</div>
+					<div class="ui-block-c">
+						<span class="rk-label rk-label-small-l4 rk-color-gray9">##fx:BLK(##phone1##,"개인연락처없음")</span><br/>
+						<span class="rk-label rk-label-small-l4 rk-color-gray9">##fx:BLK(##phone2##,"비상연락처없음")</span>
+					</div>
+					<div class="ui-block-d">
+						<a href="javascript:void(0);" onclick="##fx:'atFuncA03001_switchFee(this, ##dataset.rowIndex##);'" class="##fx:'ui-btn ui-mini' + (##fee_yn## === 'Y' ? ' ui-btn-c' : '');">
+							##fx:##fee_yn## === "Y" ? "사역비O" : "사역비X"
+						</a>
+					</div>
+					<div class="ui-block-e">
+						<a href="javascript:void(0);" onclick="##fx:'atFuncA03001_switchReport(this, ##dataset.rowIndex##);'" class="##fx:'ui-btn ui-mini' + (##bookreport_yn## === 'Y' ? ' ui-btn-b' : '');">
+							##fx:##bookreport_yn## === "Y" ? "독서O" : "독서X"
+						</a>
+					</div>
+					<div class="ui-block-f">
+						<a href="##fx:'javascript:atFuncA03001_goApply(##dataset.rowIndex##);'" class="ui-btn ui-mini">지원서확인</a>
 					</div>
 				</div>
 			</div>

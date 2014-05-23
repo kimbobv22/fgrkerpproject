@@ -1,0 +1,100 @@
+.e05001
+,.e05001 .top-search-nav
+,.e05001 .top-search-nav .total-search-bar{
+	position: relative;
+	overflow: auto;
+}
+.e05001 .top-search-nav
+,.e05001 .top-search-nav .total-search-bar{
+	display: block;
+}
+
+.e05001 .top-search-nav{
+	margin-bottom: 30px;
+}
+.e05001 .top-search-nav .total-search-bar{}
+
+.e05001 .top-search-nav .total-search-bar.ui-grid-a{}
+.e05001 .top-search-nav .total-search-bar.ui-grid-a > .ui-block-a{
+	width: calc(100% - 100px);
+	width: -webkit-calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -ms-calc(100% - 100px);
+	width: -o-calc(100% - 100px);
+}
+.e05001 .top-search-nav .total-search-bar.ui-grid-a > .ui-block-a .search-bar{
+	padding: 3px 0;
+}
+.e05001 .top-search-nav .total-search-bar.ui-grid-a > .ui-block-b{
+	width: 100px;
+}
+
+.e05001 .no-row{
+	position: relative;
+	text-align: center;
+}
+
+.e05001 .attend-list.ui-grid-e{
+	margin: 0 auto;
+	max-width: 700px;
+	margin: 0px auto;
+	padding: 5px;
+}
+.e05001 .attend-list.ui-grid-e > .ui-block-a
+,.e05001 .attend-list.ui-grid-e > .ui-block-b
+,.e05001 .attend-list.ui-grid-e > .ui-block-c
+,.e05001 .attend-list.ui-grid-e > .ui-block-d
+,.e05001 .attend-list.ui-grid-e > .ui-block-e
+,.e05001 .attend-list.ui-grid-e > .ui-block-f{
+	padding: 3px;
+}
+.e05001 .attend-list.ui-grid-e > .ui-block-a{
+	width: 60px;
+}
+
+.e05001 .attend-list.ui-grid-e > .ui-block-a > .rk-photo{
+	width: 100%;
+	max-width:60px;
+	height: 65px;
+}
+.e05001 .attend-list.ui-grid-e > .ui-block-b
+,.e05001 .attend-list.ui-grid-e > .ui-block-c{
+	width: -webkit-calc(49.9% - 150px);
+	width: -moz-calc(49.9% - 150px);
+	width: -o-calc(49.9% - 150px);
+	width: calc(49.9% - 150px);
+}
+.e05001 .attend-list.ui-grid-e > .ui-block-d{
+	width: 80px;
+}
+.e05001 .attend-list.ui-grid-e > .ui-block-e{
+	width: 70px;
+}
+.e05001 .attend-list.ui-grid-e > .ui-block-f{
+	width: 90px;
+}
+.e05001 .attend-list.ui-grid-e > .ui-block-d > .ui-btn
+,.e05001 .attend-list.ui-grid-e > .ui-block-e > .ui-btn
+,.e05001 .attend-list.ui-grid-e > .ui-block-f > .ui-btn{
+	font-size: 10px;
+	line-height: 14px;
+	margin: 0;
+}
+
+@media (max-width: 35em){
+	
+	.e05001 .attend-list.ui-grid-e > .ui-block-a{
+		width: 100%
+	}
+	.e05001 .attend-list.ui-grid-e > .ui-block-b
+	,.e05001 .attend-list.ui-grid-e > .ui-block-c{
+		width: 49.9%;
+		min-height: 0;
+	}
+	
+	.e05001 .attend-list.ui-grid-e > .ui-block-d
+	,.e05001 .attend-list.ui-grid-e > .ui-block-e
+	,.e05001 .attend-list.ui-grid-e > .ui-block-f{
+		width: 33.3%;
+	}
+}

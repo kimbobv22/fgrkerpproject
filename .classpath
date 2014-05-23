@@ -28,5 +28,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/JGServlet.2.1.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/JGDataset.1.1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jxl.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -29,6 +29,25 @@ $(document).ready(function(){
 							<td jg-column="team_nm" class="rk-label rk-label-small-l1 rk-label-bold rk-color-gray8"></td>
 						</tr>
 						<tr>
+							<th class="rk-label rk-label-small-l1 rk-color-gray5">팀장</th>
+							<td>
+								<div class="ui-grid-b leader-photo">
+									<div class="ui-block-a">
+										<div rk-photo rk-photo-id="##fx:##leader_photo_id##" rk-photo-readonly="readonly" style="height: 100px;"></div>
+									</div>
+									<div class="ui-block-b"></div>
+									<div class="ui-block-c">
+										<span class="rk-label rk-label-small-l2 rk-label-bold">##fx:BLK(##LEADER_NM##,'팀장없음')</span><br>
+										<span class="rk-label rk-label-small-l2">##fx:BLK(##LEADER_PHONE1##,'연락처 없음')</span><br>
+										<div class="rk-label rk-label-small-l2 rk-color-gray5">
+											<span rk-belong-label="##fx:##leader_belong_ctg1##" rk-belong-column="BELONG_NM" rk-belong-blk="소속1없음"></span>
+											/<span rk-belong-label="##fx:##leader_belong_ctg2##" rk-belong-column="BELONG_NM" rk-belong-blk="소속2없음"></span>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
 							<th class="rk-label rk-label-small-l1 rk-color-gray5">사역구분</th>
 							<td class="rk-label rk-label-small-l1 rk-color-gray8">
 								<span jg-column="mis_ctg1_nm"></span>/<span jg-column="mis_ctg2_nm"></span>
@@ -36,7 +55,9 @@ $(document).ready(function(){
 						</tr>
 						<tr>
 							<th class="rk-label rk-label-small-l1 rk-color-gray5">사역내용</th>
-							<td jg-column="team_desc" class="rk-label rk-label-small-l1 rk-color-gray8"></td>
+							<td>
+								<pre jg-column="team_desc" class="rk-label rk-label-word-break rk-label-small-l1 rk-color-gray8"></pre>
+							</td>
 						</tr>
 						<tr>
 							<th class="rk-label rk-label-small-l1 rk-color-gray5">사역일자</th>

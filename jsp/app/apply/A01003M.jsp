@@ -48,7 +48,7 @@
 							<td jg-column="apply_ctg_nm" class="rk-label rk-label-small-l1"></td>
 						</tr>
 						<tr style="##fx:##status## === '00005' ? '' : 'display:none;'">
-							<th class="rk-label rk-label-small-l1 rk-color-gray5">지원상태</th>
+							<th class="rk-label rk-label-small-l1 rk-color-gray5">반려사유</th>
 							<td class="rk-label rk-label-small-l1 rk-label-word-break" jg-column="rmk"></td>
 						</tr>
 					</tbody>
@@ -68,7 +68,7 @@
 								<td colspan="2">
 									<div class="ui-grid-b picture-frame">
 										<div class="ui-block-a">
-											<div rk-photo rk-photo-id="##fx:##photo_id##" style="height: 150px;"></div>
+											<div rk-photo rk-photo-id="##fx:##photo_id##"></div>
 											<a href="javascript:atFuncA01003_removePhoto();" class="ui-btn ui-mini">사진삭제</a>
 											<input type="hidden" jg-column="photo_id" required>
 										</div>
@@ -76,7 +76,7 @@
 										<div class="ui-block-c">
 											<input type="text" jg-column="name" placeholder="지원자명" required>
 											<label jg-error-column="name"></label>
-											<input type="date" jg-column="birth_date" placeholder="생일" required>
+											<input data-role="datebox" type="date" jg-column="birth_date" placeholder="생일" required custom-validator-date-pattern>
 											<label jg-error-column="birth_date"></label>
 											<input type="text" jg-column="phone1" placeholder="개인 연락처" custom-validator-or-required="phone1,phone2">
 											<input type="text" jg-column="phone2" placeholder="비상 연락처">

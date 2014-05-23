@@ -4,7 +4,7 @@ $(document).on("pagebeforecreate",function(){
 	
 	condDataView_.JGDatasetUI();
 	condData_.addRow();
-	condData_.setColumnValue("STATUS",0,"",true);
+	condData_.setColumnValue("STATUS",0,"00005",true);
 	condData_.setColumnValue("YEAR",0,"",true);
 	
 	$(condData_).on("columnvaluechanged",function(event_,columnName_,rowIndex_){

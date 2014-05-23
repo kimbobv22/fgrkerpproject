@@ -50,6 +50,29 @@ $(document).ready(function(){
 								</td>
 							</tr>
 							<tr>
+							<th class="rk-label rk-label-small-l1 rk-color-gray5">팀장</th>
+								<td>
+									<div class="ui-grid-b leader-photo">
+										<div class="ui-block-a">
+											<div rk-photo rk-photo-id="##fx:##leader_photo_id##" rk-photo-readonly="readonly"></div>
+										</div>
+										<div class="ui-block-b"></div>
+										<div class="ui-block-c">
+											<span class="rk-label rk-label-small-l2 rk-label-bold">##fx:BLK(##LEADER_NM##,'팀장없음')</span><br>
+											<span class="rk-label rk-label-small-l2">##fx:BLK(##LEADER_PHONE1##,'연락처 없음')</span><br>
+											<div class="rk-label rk-label-small-l2 rk-color-gray5">
+												<span rk-belong-label="##fx:##leader_belong_ctg1##" rk-belong-column="BELONG_NM" rk-belong-blk="소속1없음" rk-temp-belong1></span>
+												/<span rk-belong-label="##fx:##leader_belong_ctg2##" rk-belong-column="BELONG_NM" rk-belong-blk="소속2없음" rk-temp-belong2></span>
+											</div>
+											<%if(isAdmin_){%>
+											<a href="javascript:atFuncS01003_selectLeader();" class="rk-responsive-r-fixed" style="margin-left: 10px;">팀장변경</a>
+											<a href="javascript:atFuncS01003_emptyLeader();" class="rk-responsive-r-fixed">삭제</a>
+											<%}%>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
 								<th class="rk-label rk-label-small-l1 rk-color-gray5">사역구분</th>
 								<td>
 									<div class="ui-grid-a ui-responsive">
@@ -83,11 +106,11 @@ $(document).ready(function(){
 								<td>
 									<div class="ui-grid-b ministy-date">
 										<div class="ui-block-a">
-											<input type="date" jg-column="start_date">
+											<input data-role="datebox" type="date" jg-column="start_date">
 										</div>
 										<div class="ui-block-b">~</div>
 										<div class="ui-block-c">
-											<input type="date" jg-column="end_date">
+											<input data-role="datebox" type="date" jg-column="end_date">
 										</div>
 									</div>
 								</td>
@@ -107,7 +130,7 @@ $(document).ready(function(){
 					<table class="rk-content-data-view">
 						<tbody>
 							<tr>
-								<th class="rk-label rk-label-small-l1 rk-color-gray5">##fx:</th>
+								<th class="rk-label rk-label-small-l1 rk-color-gray5"></th>
 								<td>
 									
 								</td>

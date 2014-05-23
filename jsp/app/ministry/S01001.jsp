@@ -15,11 +15,11 @@
 	<jsp:include page="/jsp/common/view/RKDefault.jsp" flush="true" />
 	<div data-role="content">
 		<div id="s01001" class="s01001 rk-responsive-p" rk-mis-id="<%=misId_%>" rk-content-list-count="0">
-			<h2><%=misTitle_ %> 사역팀 검색</h2>
+			<h3><%=misTitle_ %> 사역팀 검색</h3>
 			<div class="top-search-nav" jg-dataset="s01001CondData">
 				<div>
 					<div class="ui-grid-a total-search-bar">
-						<div class="ui-block-a"><input type="text" placeholder="팀명,사역구분,주소로 검색" data-wrapper-class="search-bar" jg-column="searchText" rk-onenter="atFuncS01001_search();"></div>
+						<div class="ui-block-a"><input type="text" placeholder="팀명,사역구분,주소,팀장으로 검색" data-wrapper-class="search-bar" jg-column="searchText" rk-onenter="atFuncS01001_search();"></div>
 						<div class="ui-block-b"><a href="javascript:atFuncS01001_search();" class="ui-btn">검색</a></div>
 					</div>
 					<div class="category-bar ui-grid-d">
@@ -36,6 +36,9 @@
 						<div class="ui-block-e">
 							<select jg-column="misCtg2" jg-bind-dataset="s01001Ctg2Data" jg-value-column="ID" jg-display-column="NM"><option>사역구분2</option></select>
 						</div>
+					</div>
+					<div class="rk-responsive-r">
+						<label><input type="checkbox" jg-column="leader_yn">팀장이 세워진 곳만</label>
 					</div>
 				</div>
 			</div>
@@ -54,9 +57,13 @@
 <%}%>
 			<div class="ministry-team-list" jg-dataset="s01001MinistryTeamList">
 				<div class="ministry-team-list-row rk-color-white-back-cursor rk-color-gray2-border-b-last-child rk-color-gray2-border-t">
-					<h3><a href="javascript:void(0);" onClick="atFuncS01001_teamDetailView(this);" jg-column="TEAM_NM" rk-team-id="##fx:##TEAM_ID##"></a></h3>
-					<h4 class="rk-color-gray5"><span jg-column="MIS_CTG1_NM"></span>/<span jg-column="MIS_CTG2_NM"></span></h4>
-					<p jg-column="ADDRESS" class="rk-label rk-label-small-l1"></p>
+					<h4>
+						<a href="javascript:void(0);" onClick="atFuncS01001_teamDetailView(this);" jg-column="TEAM_NM" rk-team-id="##fx:##TEAM_ID##"></a>
+						<br/>
+						<span class="rk-label rk-label-small-l2 rk-color-gray7">##fx:##MIS_CTG1_NM##+" / "+##MIS_CTG2_NM##</span>
+						<span class="rk-label rk-label-small-l2 rk-color-gray5">##fx:'팀장'+(isNull(##LEADER_SID##) ? '없음' : ' '+##LEADER_NM##)+' / 팀원 '+##MEM_CNT##+'명'</span>
+					</h4>
+					<p jg-column="ADDRESS" class="rk-label rk-label-small-l2"></p>
 				</div>
 			</div>
 			<div class="no-row"><h4>검색된 사역팀이 없습니다</h4></div>

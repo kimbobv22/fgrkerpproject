@@ -32,7 +32,7 @@ $(document).ready(function(){
 			<div class="ministry-list" jg-dataset="a01007MinistryList">
 				<div class="ministry-list-row rk-color-white-back-cursor rk-color-gray2-border-b-last-child rk-color-gray2-border-t">
 					<div>
-						<h3 jg-column="MIS_TITLE"></h3>
+						<h4 jg-column="MIS_TITLE"></h4>
 						<h4><span class="rk-color-gray5" jg-column="STATUS_NM"></span>/<span class="rk-color-gray7" jg-column="START_DATE"></span>~<span class="rk-color-gray7" jg-column="END_DATE"></span></h4>
 						<p jg-column="MIS_DESC" class="rk-label rk-label-small-l1"></p>
 						<a href="##fx:'javascript:atFuncA01007_applyHandle(##dataset.rowIndex##);'" class="ui-btn">##fx:(##can_modify## === 'N' ? (##did_write## === 'Y' ? '지원서 확인하기' : '지원서 작성하기') : '지원서 작성중')</a>

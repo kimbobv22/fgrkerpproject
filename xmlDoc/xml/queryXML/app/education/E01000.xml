@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryList keyName="app.education.E01000">
+
+<query keyName="getCurrentMinistryInfo">
+SELECT MST.MIS_ID
+      ,MIS.MIS_TITLE
+FROM (
+	SELECT ATFUNC_S_GETCURRENTMISID() MIS_ID FROM DUAL
+) MST
+OUTER JOIN AT_MINISTRY MIS
+ON    MST.MIS_ID = MIS.MIS_ID
+</query>
+
+<query keyName="getMinistryInfo">
+SELECT MIS_ID
+      ,MIS_TITLE
+FROM   AT_MINISTRY
+WHERE 1=1
+AND   MIS_ID = #{misId}
+</query>
+
+<query keyName="getEducationInfo">
+SELECT  EDU_ID
+      ,EDU_NM
+FROM  AT_EDUCATION
+WHERE 1=1
+AND   MIS_ID = #{misId}
+AND   EDU_ID = #{eduId} 
+</query>
+
+<query keyName="getEducationDetailInfo">
+SELECT  EDU_DID
+      ,EDU_DNM
+FROM  AT_EDUCATION_DTL
+WHERE 1=1
+AND   MIS_ID = #{misId}
+AND   EDU_ID = #{eduId}
+AND   EDU_DID = #{eduDid}
+</query>
+
+
+</queryList>

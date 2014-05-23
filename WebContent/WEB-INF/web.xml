@@ -21,6 +21,9 @@
 		<url-pattern>*.png</url-pattern>
 		<url-pattern>*.jpg</url-pattern>
 		<url-pattern>*.gif</url-pattern>
+		<url-pattern>*.jpeg</url-pattern>
+		
+		<url-pattern>*.hwp</url-pattern>
 	</servlet-mapping>
 
 	<listener>
@@ -35,22 +38,21 @@
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
-	
-	<filter>
-		<filter-name>Cross Domain Filter</filter-name>
-		<filter-class>filters.CrossDomainFilter</filter-class>
-	</filter>
 
 	<filter-mapping>
 		<filter-name>Set Character Encoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	<filter>
+		<filter-name>CorsFilter</filter-name>
+		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+	</filter>
 	<filter-mapping>
-		<filter-name>Cross Domain Filter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/belong</url-pattern>
 	</filter-mapping>
-
+	
 	<security-constraint>
 		<display-name>JSP Protection</display-name>
 		<web-resource-collection>

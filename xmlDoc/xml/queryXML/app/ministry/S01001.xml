@@ -92,6 +92,9 @@ SELECT MIS_ID
        ,ADDRESS
        ,STUFF_NM1
        ,STUFF_NM2
+       ,LEADER_NM
+       ,LEADER_SID
+       ,IFNULL((SELECT COUNT(*) FROM AT_MINISTRY_TME_MEM MEM WHERE MEM.MIS_ID = MST.MIS_ID AND MEM.TEAM_ID = MST.TEAM_ID),0) MEM_CNT
 FROM (
 	SELECT  MIS_ID
 	       ,TEAM_ID
@@ -105,6 +108,8 @@ FROM (
 	       ,ADDRESS
 	       ,ATFUNC_Z_GETADDRESS1(ORG.ADDRESS) MIS_AREA1
 	       ,ATFUNC_Z_GETADDRESS2(ORG.ADDRESS) MIS_AREA2
+	       ,LEADER_SID
+	       ,ATFUNC_A_GETLEADERNAME(MIS_ID, LEADER_SID) LEADER_NM
 	FROM AT_MINISTRY_TME TME
 	LEFT OUTER JOIN AT_ORGANIZATION_BSC ORG
 	ON TME.ORG_ID = ORG.ORG_ID
@@ -117,7 +122,7 @@ FROM (
 ) MST
 WHERE 1=1 
 <isNotBlank columnName="searchText">
-AND   CONCAT(TEAM_NM,'|',IFNULL(ADDRESS,' '),'|',IFNULL(STUFF_NM1,' '),'|',IFNULL(STUFF_NM2,' ')) LIKE CONCAT('%',#{searchText},'%')
+AND   CONCAT(TEAM_NM,'|',IFNULL(ADDRESS,' '),'|',IFNULL(STUFF_NM1,' '),'|',IFNULL(STUFF_NM2,' '),'|',IFNULL(LEADER_NM,' ')) LIKE CONCAT('%',#{searchText},'%')
 </isNotBlank>
 <isNotBlank columnName="misCtg1">
 AND   MIS_CTG1 = #{misCtg1}
@@ -131,6 +136,9 @@ AND   MIS_AREA1 = #{misArea1}
 <isNotBlank columnName="misArea2">
 AND   MIS_AREA2 = #{misArea2}
 </isNotBlank>
+<isEquals columnName="leader_yn" columnValue="true">
+AND   LEADER_SID IS NOT NULL
+</isEquals>
 ORDER BY MIS_CTG1 ASC, MIS_CTG2 ASC, TEAM_NM ASC
 </query>
 

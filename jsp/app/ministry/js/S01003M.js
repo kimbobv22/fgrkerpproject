@@ -20,6 +20,14 @@ $(document).on("pagebeforecreate",function(){
 		if(columnName_ === "MIS_CTG1"){
 			teamData_.setColumnValue("MIS_CTG2",0,"");
 			atFuncS01003_loadMisCtg2(teamData_.getColumnValue("MIS_CTG1",0));
+		}else if(columnName_ === "LEADER_BELONG_CTG1"){
+			setTimeout(function(){
+				$("[rk-temp-belong1]").RKBelongLabel("refresh");
+			},100);
+		}else if(columnName_ === "LEADER_BELONG_CTG2"){
+			setTimeout(function(){
+				$("[rk-temp-belong2]").RKBelongLabel("refresh");
+			});
 		}
 	});
 });
@@ -116,4 +124,25 @@ function atFuncS01003_emptyOrganization(){
 	var teamData_ = JGDS("dataset","s01003TeamData");
 	teamData_.setColumnValue("ORG_ID",0,null);
 	teamData_.setColumnValue("ORG_NM",0,"");
+}
+
+function atFuncS01003_selectLeader(){
+	RKCommon.apply.popupSelectLeader(atFuncS01003_misId(), function(result_){
+		if(isNull(result_)) return; 
+		
+		var teamData_ = JGDS("dataset","s01003TeamData");
+		teamData_.setColumnValue("LEADER_SID",0,result_.memSid);
+		teamData_.setColumnValue("LEADER_NM",0,result_.name);
+		teamData_.setColumnValue("LEADER_PHONE1",0,result_.phone1);
+		teamData_.setColumnValue("LEADER_BELONG_CTG1",0,result_.belongCtg1);
+		teamData_.setColumnValue("LEADER_BELONG_CTG2",0,result_.belongCtg2);
+	});
+}
+function atFuncS01003_emptyLeader(){
+	var teamData_ = JGDS("dataset","s01003TeamData");
+	teamData_.setColumnValue("LEADER_SID",0,null);
+	teamData_.setColumnValue("LEADER_NM",0,"");
+	teamData_.setColumnValue("LEADER_PHONE1",0,"");
+	teamData_.setColumnValue("LEADER_BELONG_CTG1",0,null);
+	teamData_.setColumnValue("LEADER_BELONG_CTG2",0,null);
 }

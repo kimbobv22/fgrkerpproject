@@ -83,7 +83,7 @@
 				,didClose : function(){
 					RKCommon.ministry._popupSelectMinistry = null;
 					if(!window.S09002CallbackComplete) callback_(undefined);
-				}
+				},scrollbars : true
 			});
 			
 			window.S09002Callback = (function(result_){
@@ -105,7 +105,7 @@
 				,didClose : function(){
 					RKCommon.ministry._popupSelectMinistryTeam = null;
 					if(!window.S09001CallbackComplete) callback_(undefined);
-				}
+				},scrollbars : true
 			});
 			
 			window.S09001Callback = (function(result_){

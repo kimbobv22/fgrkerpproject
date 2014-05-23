@@ -93,6 +93,7 @@ public class A01003 extends JGAction{
 		}
 		
 		misData_.setKeyColumn("MIS_ID", true);misData_.setKeyColumn("MEM_SID", true);
+		misData_.setColumnValue("STATUS", 0, "00001");
 		basicData_.setKeyColumn("MIS_ID", true);basicData_.setKeyColumn("MEM_SID", true);
 		qnaData_.setKeyColumn("MIS_ID", true);qnaData_.setKeyColumn("MEM_SID", true);
 		

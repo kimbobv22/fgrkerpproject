@@ -13,7 +13,7 @@
 </jsp:include>
 </head>
 <body>
-<div data-role="page">
+<div data-role="page" class="rk-responsive-height">
 	<div data-role="header" data-position="fixed">
 		<h3>사역팀 선택</h3>
 	</div>

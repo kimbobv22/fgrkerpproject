@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+
+	<actionClasses>
+		<class name="common">rk.app.education.E01000</class>
+		
+		<class name="basic">rk.app.education.E01001</class>
+		<class name="detail">rk.app.education.E01003</class>
+		<class name="result">rk.app.education.E01005</class>
+		
+		<class name="admin_attend">rk.app.education.E05001</class>
+		
+	</actionClasses>
+	
+	<!-- education -->
+	<virtualMap pattern="^[0-9]{13,15}$" serviceID="educationList" />
+	<virtualMap pattern="^[0-9]{13,15}\/[0-9]{5}$" serviceID="educationDetailList" />
+	<virtualMap pattern="^[0-9]{13,15}\/[0-9]{5}\/[0-9]{3}$" serviceID="educationDetailView" />
+	
+	<service serviceID="educationList" actionClassName="common" mappingMethod="decodeEducation">
+		<result code="0">/jsp/app/education/E01001.jsp</result>
+		<result code="1">/jsp/app/education/E01001M.jsp</result>
+		<result code="-1" serviceID="error.notFound"/>
+		<result code="-2" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="educationDetailList" actionClassName="common" mappingMethod="decodeEducationDetail">
+		<result code="0">/jsp/app/education/E01003.jsp</result>
+		<result code="1">/jsp/app/education/E01003M.jsp</result>
+		<result code="-1" serviceID="error.notFound"/>
+		<result code="-2" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="educationDetailView" actionClassName="common" mappingMethod="decodeEducationResult">
+		<result code="0">/jsp/app/education/E01005.jsp</result>
+		<result code="1">/jsp/app/education/E01005M.jsp</result>
+		<result code="-1" serviceID="error.notFound"/>
+		<result code="-2" serviceID="error.reject"/>
+	</service>
+	
+	<!-- education -->
+	<virtualMap pattern="^attend\/[0-9]{13,15}\/[0-9]{5}\/[0-9]{3}$" serviceID="checkAttend" />
+	
+	<service serviceID="checkAttend" actionClassName="admin_attend" mappingMethod="decodeAttend">
+		<result code="0" serviceID="error.reject" />
+		<result code="1">/jsp/app/education/E05001.jsp</result>
+		<result code="-1" serviceID="error.notFound"/>
+		<result code="-2" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="_getAttendList" actionClassName="admin_attend" mappingMethod="getAttendList" />
+	<service serviceID="getAttendList" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_getAttendList" />
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+	
+	<service serviceID="_updateAttend" actionClassName="admin_attend" mappingMethod="updateAttend" />
+	<service serviceID="updateAttend" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_updateAttend" />
+		<result code="-1" serviceID="error.reject"/>
+	</service>
+
+</serviceList>

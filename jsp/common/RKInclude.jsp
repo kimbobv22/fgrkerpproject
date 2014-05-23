@@ -11,10 +11,10 @@
 <script src="<%=serviceUrl_ %>jsp/common/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="<%=serviceUrl_ %>jsp/common/js/jquery/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="<%=serviceUrl_ %>jsp/common/js/jquery/jquery.mobile-1.4.0.min.js"></script>
-<script src="<%=serviceUrl_ %>jsp/common/js/jg.library/JGDataset.2.0.1.min.js"></script>
-<script src="<%=serviceUrl_ %>jsp/common/js/jg.library/JGDatasetUI.2.0.1.min.js"></script>
-<script src="<%=serviceUrl_ %>jsp/common/js/jg.library/JGDatasetUI.validator.2.0.1.min.js"></script>
-<script src="<%=serviceUrl_ %>jsp/common/js/jg.library/JGService.2.1.0.min.js"></script>
+<script src="<%=serviceUrl_ %>jsp/common/js/jg.library/JGDataset.2.0.2.min.js"></script>
+<script src="<%=serviceUrl_ %>jsp/common/js/jg.library/JGDatasetUI.2.0.2.min.js"></script>
+<script src="<%=serviceUrl_ %>jsp/common/js/jg.library/JGDatasetUI.validator.2.0.2.min.js"></script>
+<script src="<%=serviceUrl_ %>jsp/common/js/jg.library/JGService.2.1.1.min.js"></script>
 <script type="text/javascript">
 JGService.requestURL("root","<%=serviceUrl_%>");
 JGService.requestURL("churchinfo","<%=churchInfoUrl_%>belong/");

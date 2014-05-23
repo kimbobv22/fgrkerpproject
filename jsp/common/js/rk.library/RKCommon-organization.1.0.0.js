@@ -37,7 +37,7 @@
 				,didClose : function(){
 					RKCommon.organization._popupSelectOrganization = null;
 					if(!window.O09001CallbackComplete) callback_(undefined);
-				}
+				},scrollbars : true
 			});
 			
 			window.O09001Callback = (function(result_){

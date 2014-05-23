@@ -98,9 +98,6 @@ function atFuncA03005_search(){
 			,condData : condData_.toJSONString(false)
 		},success : function(data_){
 			applyData_.applyJSON(data_.message);
-			var rowCount_ = applyData_.getRowCount();
-			var title_ = (rowCount_ > 0 ? "총 "+rowCount_+"개" : "검색된 지원서가 없습니다");
-			$(".a03005 .no-row h4").text(title_);
 		},error : function(){
 			alert("에러발생!");
 		}
@@ -110,5 +107,43 @@ function atFuncA03005_goApply(rowIndex_){
 	var applyData_ = JGDS("dataset","a03005ApplyData");
 	var misId_ = applyData_.getColumnValue("mis_id",rowIndex_);
 	var memSid_ = applyData_.getColumnValue("mem_sid",rowIndex_);
-	location.href = JGService.requestURL(RKCommon.apply.requestURLKey)+"/leader/"+misId_+"/"+memSid_;
+	RKCommon.openPopupWindow({
+		width : screen.width,
+		height: screen.height,
+		scrollBars : true,
+		url : JGService.requestURL(RKCommon.apply.requestURLKey)+"/leader/"+misId_+"/"+memSid_
+	});
+}
+
+function atFuncA03005_switchReport(btn_, rowIndex_){
+	var applyData_ = JGDS("dataset","a03005ApplyData");
+	var misId_ = applyData_.getColumnValue("MIS_ID",rowIndex_);
+	var memSid_ = applyData_.getColumnValue("MEM_SID",rowIndex_);
+	var boolValue_ = (applyData_.getColumnValue("BOOKREPORT_YN",rowIndex_) === "Y" ? false : true);
+	
+	$(btn_).addClass("ui-disabled");
+	RKCommon.apply.updateBookReport(misId_, memSid_, boolValue_, function(result_){
+		if(!NVL(result_,false)){
+			alert("에러발생");
+		}else{
+			applyData_.setColumnValue("BOOKREPORT_YN",rowIndex_, (boolValue_ ? "Y" : "N"));
+		}
+		$(btn_).removeClass("ui-disabled");
+	});
+}
+function atFuncA03005_switchFee(btn_, rowIndex_){
+	var applyData_ = JGDS("dataset","a03005ApplyData");
+	var misId_ = applyData_.getColumnValue("MIS_ID",rowIndex_);
+	var memSid_ = applyData_.getColumnValue("MEM_SID",rowIndex_);
+	var boolValue_ = (applyData_.getColumnValue("FEE_YN",rowIndex_) === "Y" ? false : true);
+	
+	$(btn_).addClass("ui-disabled");
+	RKCommon.apply.updateFee(misId_, memSid_, boolValue_, function(result_){
+		if(!NVL(result_,false)){
+			alert("에러발생");
+		}else{
+			applyData_.setColumnValue("FEE_YN",rowIndex_, (boolValue_ ? "Y" : "N"));
+		}
+		$(btn_).removeClass("ui-disabled");
+	});
 }

@@ -37,9 +37,9 @@ String misId_ = (String)request.getAttribute("misId");
 							<th class="rk-label rk-label-small-l1 rk-color-gray5">사역일정</th>
 							<td>
 								<div class="ui-grid-b ministy-date">
-									<div class="ui-block-a"><input type="date" jg-column="start_date" required></div>
+									<div class="ui-block-a"><input data-role="datebox" type="date" jg-column="start_date" required></div>
 									<div class="ui-block-b">~</div>
-									<div class="ui-block-c"><input type="date" jg-column="end_date" required></div>
+									<div class="ui-block-c"><input data-role="datebox" type="date" jg-column="end_date" required></div>
 								</div>
 							</td>
 						</tr>

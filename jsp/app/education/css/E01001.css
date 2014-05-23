@@ -1,0 +1,44 @@
+.e01001
+,.e01001 .top-search-nav
+,.e01001 .top-search-nav .total-search-bar{
+	position: relative;
+	overflow: auto;
+}
+.e01001 .top-search-nav
+,.e01001 .top-search-nav .total-search-bar{
+	display: block;
+}
+
+.e01001 .top-search-nav{
+	margin-bottom: 30px;
+}
+.e01001 .top-search-nav .total-search-bar{}
+
+.e01001 .top-search-nav .total-search-bar.ui-grid-a{}
+.e01001 .top-search-nav .total-search-bar.ui-grid-a > .ui-block-a{
+	width: calc(100% - 100px);
+	width: -webkit-calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -ms-calc(100% - 100px);
+	width: -o-calc(100% - 100px);
+}
+.e01001 .top-search-nav .total-search-bar.ui-grid-a > .ui-block-a .search-bar{
+	padding: 3px 0;
+}
+.e01001 .top-search-nav .total-search-bar.ui-grid-a > .ui-block-b{
+	width: 100px;
+}
+
+.e01001 .edu-list.ui-grid-a{
+	padding: 5px;
+}
+
+.e01001 .edu-list.ui-grid-a > .ui-block-a{
+	width: -webkit-calc(100% - 100px);
+	width: -moz-calc(100% - 100px);
+	width: -o-calc(100% - 100px);
+	width: calc(100% - 100px);
+}
+.e01001 .edu-list.ui-grid-a > .ui-block-b{
+	width: 100px;
+}

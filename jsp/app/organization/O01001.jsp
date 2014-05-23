@@ -32,9 +32,9 @@
 			<div class="org-handle-btn"><a href="javascript:atFuncO01001_newOrganizationInfo();" class="ui-btn rk-responsive-r">새로운 단체 추가</a></div>
 			<div class="org-list" jg-dataset="o01001OraganizationData">
 				<div class="org-list-row rk-color-white-back-cursor rk-color-gray2-border-b-last-child rk-color-gray2-border-t">
-					<h3><a href="javascript:void(0);" onClick="atFuncO01001_organizationDetailView(this);" jg-column="ORG_NM" rk-org-id="##fx:##ORG_ID##"></a></h3>
+					<h4><a href="javascript:void(0);" onClick="atFuncO01001_organizationDetailView(this);" jg-column="ORG_NM" rk-org-id="##fx:##ORG_ID##"></a></h4>
 					<h4 class="rk-color-gray5"><span jg-column="STUFF_NM1"></span>/<span jg-column="STUFF_PHONE1"></span></h4>
-					<p jg-column="ADDRESS" class="rk-label rk-label-small-l1"></p>
+					<p jg-column="ADDRESS" class="rk-label rk-label-small-l2"></p>
 				</div>
 			</div>
 			<div class="no-row"><h4>검색된 단체가 없습니다</h4></div>

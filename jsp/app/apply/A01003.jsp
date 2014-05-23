@@ -89,7 +89,7 @@
 							<td jg-column="status_nm" class="rk-label rk-label-small-l1"></td>
 						</tr>
 						<tr style="##fx:##status## === '00005' ? '' : 'display:none;'">
-							<th class="rk-label rk-label-small-l1 rk-color-gray5">지원상태</th>
+							<th class="rk-label rk-label-small-l1 rk-color-gray5">반려사유</th>
 							<td class="rk-label rk-label-small-l1 rk-label-word-break" jg-column="rmk"></td>
 						</tr>
 <%if(isAdmin_){ %>
@@ -116,14 +116,14 @@
 								<td colspan="2">
 									<div class="ui-grid-b picture-frame">
 										<div class="ui-block-a">
-											<div rk-photo rk-photo-id="##fx:##photo_id##" rk-photo-readonly="readonly" style="height: 150px;"></div>
+											<div rk-photo rk-photo-id="##fx:##photo_id##" rk-photo-readonly="readonly"></div>
 										</div>
 										<div class="ui-block-b"></div>
 										<div class="ui-block-c">
-											<span class="rk-label rk-label-normal-l1 rk-label-bold">##fx:BLK(##name##,'이름없음')</span><br>
-											<span class="rk-label rk-label-small-l1">##fx:BLK(##birth_Date##,'생일없음')</span><br>
-											<span class="rk-label rk-label-small-l1">##fx:BLK(##phone1##,'개인연락처없음')</span><br>
-											<span class="rk-label rk-label-small-l1">##fx:BLK(##phone2##,'비상연락처없음')</span>
+											<span class="rk-label rk-label-small-l1 rk-label-bold">##fx:BLK(##name##,'이름없음')</span><br>
+											<span class="rk-label rk-label-small-l2">##fx:BLK(##birth_Date##,'생일없음')</span><br>
+											<span class="rk-label rk-label-small-l2">##fx:BLK(##phone1##,'개인연락처없음')</span><br>
+											<span class="rk-label rk-label-small-l2">##fx:BLK(##phone2##,'비상연락처없음')</span>
 										</div>
 									</div>
 								</td>

@@ -14,6 +14,7 @@ $(document).on("pagebeforecreate",function(){
 	});
 	teamDataView_.on("datasetuicolumnrefreshed",function(event_, columnName_, rowIndex_){
 		$($(this).children()[rowIndex_]).find("select").selectmenu("refresh");
+		$($(this).children()[rowIndex_]).find("[rk-photo]").RKPhoto("refresh");
 	});
 });
 

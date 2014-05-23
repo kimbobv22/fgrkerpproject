@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceList>
+    
+    <virtualMap pattern="^introduction$" serviceID="introduction" />
+    <virtualMap pattern="^preparation$" serviceID="preparation" />
+    <virtualMap pattern="^meditation$" serviceID="meditation" />
+    <virtualMap pattern="^missionWork$" serviceID="missionWork" />
+    <virtualMap pattern="^intercessoryPrayer$" serviceID="intercessoryPrayer" />
+    <virtualMap pattern="^missionRule$" serviceID="missionRule" />
+    
+    <virtualMap pattern="^down\/0001$" serviceID="down_0001" />
+    <virtualMap pattern="^down\/0002$" serviceID="down_0002" />
+
+	<service serviceID="index" isPrimary="true">
+		<result>/jsp/app/guide/index.jsp</result>
+	</service>
+	
+	<service serviceID="introduction" isPrimary="true">
+		<result>/jsp/app/guide/introduction.jsp</result>
+	</service>
+	
+	<service serviceID="preparation" isPrimary="true">
+		<result>/jsp/app/guide/preparation.jsp</result>
+	</service>
+	
+	<service serviceID="meditation" isPrimary="true">
+		<result>/jsp/app/guide/meditation.jsp</result>
+	</service>
+	
+	<service serviceID="missionWork" isPrimary="true">
+		<result>/jsp/app/guide/missionWork.jsp</result>
+	</service>
+	
+	<service serviceID="intercessoryPrayer" isPrimary="true">
+		<result>/jsp/app/guide/missionRule.jsp</result>
+	</service>
+	
+	<service serviceID="missionRule" isPrimary="true">
+		<result>/jsp/app/guide/missionRule.jsp</result>
+	</service>
+	
+	<service serviceID="down_0001" isPrimary="true">
+		<result>/jsp/app/guide/resources/0001.hwp</result>
+	</service>
+	
+	<service serviceID="down_0002" isPrimary="true">
+		<result>/jsp/app/guide/resources/0002.hwp</result>
+	</service>
+
+</serviceList>

@@ -13,7 +13,7 @@
 	<jsp:include page="/jsp/common/view/RKDefault.jsp" flush="true" />
 	<div data-role="content">
 		<div id="s02001" class="s02001 rk-responsive-p" rk-content-list-count="0">
-			<h2>사역 검색</h2>
+			<h3>사역 검색</h3>
 			<div class="top-search-nav" jg-dataset="s02001CondData">
 				<div>
 					<div class="ui-grid-a total-search-bar">
@@ -47,9 +47,9 @@
 <%}%>
 			<div class="ministry-list" jg-dataset="s02001MinistryList">
 				<div class="ministry-list-row rk-color-white-back-cursor rk-color-gray2-border-b-last-child rk-color-gray2-border-t">
-					<h3><a href="javascript:void(0);" onClick="atFuncS02001_goMinistryTeamList(this);" jg-column="MIS_TITLE" rk-team-id="##fx:##MIS_ID##"></a></h3>
-					<h4><span class="rk-color-gray5" jg-column="STATUS_NM"></span>/<span class="rk-color-gray7" jg-column="START_DATE"></span>~<span class="rk-color-gray7" jg-column="END_DATE"></span></h4>
-					<p jg-column="MIS_DESC" class="rk-label rk-label-small-l1"></p>
+					<h4><a href="javascript:void(0);" onClick="atFuncS02001_goMinistryTeamList(this);" jg-column="MIS_TITLE" rk-team-id="##fx:##MIS_ID##"></a></h4>
+					<h5><span class="rk-color-gray5" jg-column="STATUS_NM"></span>/<span class="rk-color-gray7" jg-column="START_DATE"></span>~<span class="rk-color-gray7" jg-column="END_DATE"></span></h5>
+					<p jg-column="MIS_DESC" class="rk-label rk-label-small-l2"></p>
 					<%if(isAdmin_){%><a href="##fx:'javascript:atFuncS02001_ministryView(##dataset.rowIndex##);'" class="ui-btn rk-responsive-r">수정</a><%}%>
 				</div>
 			</div>

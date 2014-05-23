@@ -3,6 +3,7 @@
 	var module_ = window.RKCommon.belong = {
 		requestURLKey : "churchinfo"
 		,rootBelongId : "100010000000000"
+		,_cachedBelongCtg : {}
 		,getBelongCategory : function(options_, callback_){
 			var belongId_ = null;
 			var belongNm_ = null;
@@ -16,6 +17,24 @@
 				title_ = options_.title;
 			}
 			
+			function addTitle(aDataset_, aTitle_){
+				if(!isNull(aTitle_)){
+					aDataset_.insertRow(0);
+					aDataset_.setColumnValues({
+						BELONG_ID : ""
+						,BELONG_NM : aTitle_
+					},0, true);
+				}
+			}
+			
+			if(!isNull(this._cachedBelongCtg[belongId_])){
+				var result_ = new JGDataset(this._cachedBelongCtg[belongId_].toJSONString(false));
+				addTitle(result_, title_);
+				callback_(result_.toJSON(false));
+				return;
+			}
+			
+			var that_ = this;
 			JGService.ajax(this.requestURLKey,{
 				data : {
 					srvID : "list"
@@ -23,24 +42,26 @@
 					,belongNm : BLK(belongNm_)
 				},success: function(data_){
 					var dataset_ = new JGDataset(data_);
-					if(!isNull(title_)){
-						dataset_.insertRow(0);
-						dataset_.setColumnValues({
-							BELONG_ID : ""
-							,BELONG_NM : title_
-						},0, true);
-					}
+					that_._cachedBelongCtg[belongId_] = new JGDataset(data_);
+					addTitle(dataset_, title_);
 					if(!isNull(callback_)) callback_(dataset_.toJSON(false));
 				},error : function(response_, errorStr_){
 					if(!isNull(callback_)) callback_(undefined);
 				}
 			});
-		},getBelongInfo : function(belongId_, callback_){
+		},_cachedBelongInfo : {}
+		,getBelongInfo : function(belongId_, callback_){
+			if(!isNull(this._cachedBelongInfo[belongId_])){
+				if(!isNull(callback_)) callback_($.extend(true,this._cachedBelongInfo[belongId_],{}));
+			}
+			
+			var that_ = this;
 			JGService.ajax(this.requestURLKey,{
 				data : {
 					srvID : "info"
 					,belongId : belongId_
 				},success: function(data_){
+					that_._cachedBelongInfo[belongId_] = $.extend(true,data_,{});
 					if(!isNull(callback_)) callback_(data_);
 				},error : function(response_, errorStr_){
 					if(!isNull(callback_)) callback_(undefined);

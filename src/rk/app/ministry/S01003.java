@@ -62,6 +62,10 @@ public class S01003 extends JGAction {
 		teamData_.setKeyColumn("MIS_ID", true);
 		teamData_.setKeyColumn("TEAM_ID", true);
 		teamData_.removeColumn("ORG_NM");
+		teamData_.removeColumn("LEADER_NM");
+		teamData_.removeColumn("LEADER_PHONE1");
+		teamData_.removeColumn("LEADER_BELONG_CTG1");
+		teamData_.removeColumn("LEADER_BELONG_CTG2");
 		getDBConnection().executeUpdate(teamData_, "AT_MINISTRY_TME");
 		getDBConnection().commit();
 		serviceBox_.writer().printResultJSON(0);

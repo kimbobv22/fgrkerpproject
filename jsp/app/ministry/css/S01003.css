@@ -2,6 +2,31 @@
 	
 }
 
+.s01003 .ui-grid-b.leader-photo .ui-block-a
+,.s01003 .ui-grid-b.leader-photo .ui-block-b
+,.s01003 .ui-grid-b.leader-photo .ui-block-c{
+	height: 100px;
+}
+
+.s01003 .ui-grid-b.leader-photo .ui-block-a
+,.s01003 .ui-grid-b.leader-photo .ui-block-a .rk-photo{
+	width: 80px;
+}
+.s01003 .ui-grid-b.leader-photo .ui-block-a .rk-photo{
+	margin: 0 auto;
+	height: 100%;
+}
+.s01003 .ui-grid-b.leader-photo .ui-block-b{
+	width: 15px;
+}
+.s01003 .ui-grid-b.leader-photo .ui-block-c{
+	width: calc(100% - 95px);
+	width: -webkit-calc(100% - 95px);
+	width: -moz-calc(100% - 95px);
+	width: -ms-calc(100% - 95px);
+	width: -o-calc(100% - 95px);
+}
+
 .s01003 .map-view{
 	height: 300px;
 }
@@ -24,5 +49,19 @@
 	}
 	.s01003 .ui-grid-b.ministy-date .ui-block-c{
 		width: 90%;
+	}
+}
+@media all and (max-width: 380px){
+	.s01003 .ui-grid-b.leader-photo .ui-block-b
+	,.s01003 .ui-grid-b.leader-photo .ui-block-c{
+		height: inherit;
+	}
+	
+	.s01003 .ui-grid-b.leader-photo .ui-block-a
+	,.s01003 .ui-grid-b.leader-photo .ui-block-c{
+		width: 100%;
+	}
+	.s01003 .ui-grid-b.leader-photo .ui-block-b{
+		width: 0px;
 	}
 }

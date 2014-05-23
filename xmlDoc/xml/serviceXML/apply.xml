@@ -11,8 +11,15 @@
 		<class name="admin_member_basic">rk.app.apply.A03001</class>
 		<class name="admin_leader_basic">rk.app.apply.A03005</class>
 		
+		<class name="admin_documentation">rk.app.apply.A04001</class>
+		
+		<class name="popup_leader">rk.app.apply.A09001</class>
+		<class name="popup_member">rk.app.apply.A09003</class>
+		<class name="popup_leaderAndMember">rk.app.apply.A09005</class>
+		
 	</actionClasses>
 	
+	<!-- common -->
 	<service serviceID="canAccess" actionClassName="common" mappingMethod="canAccess" />
 	
 	<service serviceID="_alreadyHaveApply" isPrivate="true">
@@ -223,5 +230,51 @@
 		<result code="0" serviceID="_admin_getLeaderApplyList"/>
 		<result code="-1" serviceID="error.reject"/>
 	</service>
+	
+	<service serviceID="_updateBookReport" actionClassName="admin_documentation" mappingMethod="updateBookReport" isPrivate="true" />
+	<service serviceID="updateBookReport" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_updateBookReport" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_updateFee" actionClassName="admin_documentation" mappingMethod="updateFee" isPrivate="true" />
+	<service serviceID="updateFee" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_updateFee" />
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<!-- popup -->
+	<service serviceID="_popup_getLeaderList" actionClassName="popup_leader" mappingMethod="getLeaderList" isPrivate="true" />
+	<service serviceID="popup_getLeaderList" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_popup_getLeaderList"/>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_popup_getMemberList" actionClassName="popup_member" mappingMethod="getMemberList" isPrivate="true" />
+	<service serviceID="popup_getMemberList" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_popup_getMemberList"/>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	<service serviceID="_popup_getLeaderAndMemberList" actionClassName="popup_leaderAndMember" mappingMethod="getLeaderAndMemberList" isPrivate="true" />
+	<service serviceID="popup_getLeaderAndMemberList" forwardServiceID="main.isAdmin">
+		<result code="0" serviceID="_popup_getLeaderAndMemberList"/>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
+	
+	<service serviceID="popup_selectLeader" forwardServiceID="main.isAdmin">
+		<result code="0">/jsp/app/apply/A09001.jsp</result>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	<service serviceID="popup_selectMember" forwardServiceID="main.isAdmin">
+		<result code="0">/jsp/app/apply/A09003.jsp</result>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	<service serviceID="popup_selectLeaderAndMember" forwardServiceID="main.isAdmin">
+		<result code="0">/jsp/app/apply/A09005.jsp</result>
+		<result code="-1" serviceID="error.reject" />
+	</service>
+	
 
 </serviceList>

@@ -5,6 +5,12 @@
 		,options : {
 			fileAccept : "image/*"
 			,readonly : false
+		},_setOption : function(key_, value_){
+			this._super(key_, value_);
+			
+			if(this.options.readonly)
+				this._preview.addClass("rk-disabled");
+			else this._preview.removeClass("rk-disabled");
 		},_inputFile : null
 		,_preview : null
 		,_previewPath : null
@@ -51,8 +57,8 @@
 			
 			preview_.css({
 				position : "absolute"
-				,width : element_.width()
-				,height : element_.height()
+				,width : "100%"
+				,height : "100%"
 				,top: 0, left: 0 
 			});
 			preview_.addClass("rk-image rk-image-cover");
@@ -67,7 +73,7 @@
 			var photoId_ = element_.attr("rk-photo-id");
 			if(!isBlank(photoId_)) this.previewPath(RKCommon.photo.photoURL(photoId_));
 			
-			this.options.readonly = (element_.attr("rk-photo-readonly") === "readonly");
+			this.option({readonly : (element_.attr("rk-photo-readonly") === "readonly")});
 		},upload : function(callback_){
 			if(!this.isLocalPath()) if(!isNull(callback_)) callback_(undefined);
 			
@@ -89,6 +95,9 @@
 					callback_();
 				}
 			},this._inputFile);
+		},refresh : function(){
+			var photoId_ = this.element.attr("rk-photo-id");
+			if(!isBlank(photoId_)) this.previewPath(RKCommon.photo.photoURL(photoId_));
 		}
 	});
 	

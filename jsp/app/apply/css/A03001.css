@@ -40,31 +40,51 @@
 	width: 100px;
 }
 
-.a03001 .apply-list .apply-list-row{
-	overflow: auto;
-	padding: 10px;
+.a03001 .apply-list.ui-grid-e{
+	margin: 0 auto;
+	max-width: 700px;
+	margin: 0px auto;
+	padding: 5px;
 }
-.a03001 .apply-list .apply-list-row .apply-list-row-item{
-	margin-top: 10px;
+.a03001 .apply-list.ui-grid-e > .ui-block-a
+,.a03001 .apply-list.ui-grid-e > .ui-block-b
+,.a03001 .apply-list.ui-grid-e > .ui-block-c
+,.a03001 .apply-list.ui-grid-e > .ui-block-d
+,.a03001 .apply-list.ui-grid-e > .ui-block-e
+,.a03001 .apply-list.ui-grid-e > .ui-block-f{
+	padding: 3px;
 }
-.a03001 .apply-list .apply-list-row .apply-list-row-item:FIRST-CHILD{
-	margin-top: 0px;
-}
-
-.a03001 .apply-list .apply-list-row .apply-list-row-item .ui-grid-a.basic-grid .ui-block-a{
-	width: 75px;
-}
-.a03001 .apply-list .apply-list-row .apply-list-row-item .ui-grid-a.basic-grid .ui-block-b{
-	padding-left: 10px;
-	width: calc(100% - 75px);
-	width: -webkit-calc(100% - 75px);
-	width: -moz-calc(100% - 75px);
-	width: -ms-calc(100% - 75px);
-	width: -o-calc(100% - 75px);
+.a03001 .apply-list.ui-grid-e > .ui-block-a{
+	width: 60px;
 }
 
-.a03001 .apply-list .apply-list-row .apply-list-row-item .ui-grid-a.basic-grid .ui-block-a .rk-photo{
-	height: 90px;
+.a03001 .apply-list.ui-grid-e > .ui-block-a > .rk-photo{
+	width: 100%;
+	max-width:60px;
+	height: 65px;
+}
+.a03001 .apply-list.ui-grid-e > .ui-block-b
+,.a03001 .apply-list.ui-grid-e > .ui-block-c{
+	width: -webkit-calc(49.9% - 150px);
+	width: -moz-calc(49.9% - 150px);
+	width: -o-calc(49.9% - 150px);
+	width: calc(49.9% - 150px);
+}
+.a03001 .apply-list.ui-grid-e > .ui-block-d{
+	width: 80px;
+}
+.a03001 .apply-list.ui-grid-e > .ui-block-e{
+	width: 70px;
+}
+.a03001 .apply-list.ui-grid-e > .ui-block-f{
+	width: 90px;
+}
+.a03001 .apply-list.ui-grid-e > .ui-block-d > .ui-btn
+,.a03001 .apply-list.ui-grid-e > .ui-block-e > .ui-btn
+,.a03001 .apply-list.ui-grid-e > .ui-block-f > .ui-btn{
+	font-size: 10px;
+	line-height: 14px;
+	margin: 0;
 }
 
 .a03001 .no-row{
@@ -87,5 +107,23 @@
 	}
 	.a03001 .top-search-nav .total-search-bar.ui-grid-c .ui-block-d{
 		width: 100px;
+	}
+}
+
+@media (max-width: 35em){
+	
+	.a03001 .apply-list.ui-grid-e > .ui-block-a{
+		width: 100%
+	}
+	.a03001 .apply-list.ui-grid-e > .ui-block-b
+	,.a03001 .apply-list.ui-grid-e > .ui-block-c{
+		width: 49.9%;
+		min-height: 0;
+	}
+	
+	.a03001 .apply-list.ui-grid-e > .ui-block-d
+	,.a03001 .apply-list.ui-grid-e > .ui-block-e
+	,.a03001 .apply-list.ui-grid-e > .ui-block-f{
+		width: 33.3%;
 	}
 }

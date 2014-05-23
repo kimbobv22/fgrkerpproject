@@ -71,6 +71,7 @@ AND   QNA.MEM_SID = #{memSid}
 <query keyName="submitApplyData">
 UPDATE AT_APPLY
 SET  STATUS = '00003'
+    ,MOD_DATE = NOW()
 WHERE 1=1
 AND   MIS_ID = #{misId}
 AND   MEM_SID = #{memSid}
@@ -87,6 +88,7 @@ AND   MEM_SID = #{memSid}
 UPDATE AT_APPLY
 SET   STATUS = '00005'
      ,RMK = #{rmk}
+     ,MOD_DATE = NOW()
 WHERE 1=1
 AND   MIS_ID = #{misId}
 AND   MEM_SID = #{memSid}

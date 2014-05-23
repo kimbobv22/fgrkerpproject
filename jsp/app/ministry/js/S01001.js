@@ -15,6 +15,7 @@ $(document).on("pagebeforecreate",function(){
 	condData_.setColumnValue("MISAREA2",0,"",true);
 	condData_.setColumnValue("MISCTG1",0,"",true);
 	condData_.setColumnValue("MISCTG2",0,"",true);
+	condData_.setColumnValue("LEADER_YN",0,true,true);
 	
 	$(condData_).on("columnvaluechanged",function(event_,columnName_,rowIndex_){
 		if(columnName_ === "MISAREA1"){
@@ -23,7 +24,9 @@ $(document).on("pagebeforecreate",function(){
 			atFuncS01001_loadMisCtg2();
 		}
 		
-		if(columnName_ === "MISAREA1" || columnName_ === "MISAREA2" || columnName_ === "MISCTG1" || columnName_ === "MISCTG2"){
+		if(columnName_ === "MISAREA1" || columnName_ === "MISAREA2"
+			|| columnName_ === "MISCTG1" || columnName_ === "MISCTG2"
+			|| columnName_ === "LEADER_YN"){
 			atFuncS01001_search();
 		}
 	});

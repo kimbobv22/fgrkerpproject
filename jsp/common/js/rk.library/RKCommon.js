@@ -132,7 +132,12 @@
 	,serverURL_+"jsp/common/js/rsa/rsa.js"
 	,serverURL_+"jsp/common/js/jquery.plugin/RKExtension.1.0.0.js"
 	,serverURL_+"jsp/common/js/jquery.plugin/jquery.blockUI.js"
-	,serverURL_+"jsp/common/js/jquery.plugin/jquery.RKPhoto.1.0.0.js"]);
+	,serverURL_+"jsp/common/js/jquery.plugin/jquery.RKPhoto.1.0.0.js"
+	,serverURL_+"jsp/common/js/jquery.plugin/jquery.datebox/jqm-datebox.core.js"
+	,serverURL_+"jsp/common/js/jquery.plugin/jquery.datebox/jqm-datebox.mode.calbox.js"
+	,serverURL_+"jsp/common/js/jquery.plugin/jquery.datebox/jqm-datebox.mode.datebox.js"
+	,serverURL_+"jsp/common/js/jquery.plugin/jquery.datebox/i8n/jquery.mobile.datebox.i18n.ko.js"
+	,serverURL_+"jsp/common/js/jquery.plugin/JGDatasetCount.1.0.0.js"]);
 	
 	JGService.requestURL(module_.requestURLKey, JGService._requestURLs[RKCommon.requestURLKey_root]+"common");
 	
@@ -144,10 +149,13 @@
 	,serverURL_+"jsp/common/js/rk.library/RKCommon-belong.1.0.0.js"
 	,serverURL_+"jsp/common/js/rk.library/RKCommon-photo.1.0.0.js"
 	,serverURL_+"jsp/common/js/rk.library/RKCommon-apply.1.0.0.js"
+	,serverURL_+"jsp/common/js/rk.library/RKCommon-education.1.0.0.js"
 	]);
 	
 	module_.addCSS([
 	serverURL_+"jsp/common/css/RKCommon.css"
+	,serverURL_+"jsp/common/js/jquery.plugin/jquery.datebox/jqm-datebox.css"
+	,serverURL_+"jsp/common/js/jquery.plugin/jquery.datebox/jquery.mobile.datebox.css"
 	]);
 	
 	$.fn.rkFuncLoadServiceView = (function(requestURLKey_, parameters_, callback_){
@@ -201,9 +209,19 @@
 			}
 			
 			callback_(true);
+		},"date-pattern" : function(validatorElement_, columnName_, rowIndex_, columnValue_, callback_){
+			var regex_ = /^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/;
+			callback_(regex_.test(columnValue_));
 		}
 	});
 	
+	var today_ = new Date();
+	jQuery.extend(jQuery.mobile.datebox.prototype.options, {
+		//overrideDateFormat : "yyyy-mm-dd",
+		useHeader : false,
+		useTodayButton : true,
+		mode : "datebox"
+	});
 
 	return module_;
 })(window,jQuery);

@@ -138,6 +138,11 @@ label[jg-error-column]{
 	background-position: center;
 }
 
+.rk-disabled{
+	cursor: default !important;
+	pointer-events: none;
+}
+
 @media (max-width:600px){
 	.rk-responsive-size
 	,.rk-responsive-p{

@@ -130,6 +130,7 @@ $(document).ready(function(){
 			required: "지원자명을 입력하여 주세요"
 		},birth_date : {
 			required: "생일을 입력하여 주세요"
+			,"date-pattern" : "날짜형식으로 입력하여 주세요(ex>1982-1-15)"
 		},phone1 : {
 			"or-required": "연락처를 입력하여 주세요"
 		},address : {

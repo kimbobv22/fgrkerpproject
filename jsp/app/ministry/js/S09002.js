@@ -73,6 +73,6 @@ function atFuncS09002_select(rowIndex_){
 	var misId_ = misData_.getColumnValue("mis_id",rowIndex_);
 	var misTitle_ = misData_.getColumnValue("mis_title",rowIndex_);
 	
-	if(!isNull(window.opener.S09002Callback)) window.S09002Callback.apply(window.opener,[{misId : misId_, misTitle: misTitle_}]);
+	if(!isNull(window.opener.S09002Callback)) window.opener.S09002Callback.apply(window.opener,[{misId : misId_, misTitle: misTitle_}]);
 	window.close();
 }

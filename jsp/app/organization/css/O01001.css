@@ -31,7 +31,7 @@
 
 .o01001 .org-list .org-list-row{
 	overflow: auto;
-	padding: 0 10px;
+	padding: 10px;
 }
 .o01001 .no-row{
 	position: relative;
