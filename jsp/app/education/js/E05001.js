@@ -21,17 +21,35 @@ $(document).on("pagebeforecreate",function(){
 		$($(this).children()[rowIndex_]).find("select").selectmenu("refresh");
 	});
 	
+	var page_ = $("#e05001");
 	condData_.addColumns("MIS_ID","BELONG_CTG1","BELONG_CTG2","BELONG_CTG3","SEARCH_TEXT");
 	condData_.addRow();
 	condData_.setColumnValues({
-		MIS_ID : $("#e05001").attr("rk-mis-id"),
+		MIS_ID : page_.attr("rk-mis-id"),
+		MIS_TITLE : page_.attr("rk-mis-title"),
+		EDU_ID : page_.attr("rk-edu-id"),
+		EDU_NM : page_.attr("rk-edu-nm"),
+		EDU_DID : page_.attr("rk-edu-did"),
+		EDU_DNM : page_.attr("rk-edu-dnm"),
 		BELONG_CTG1 : "",
 		BELONG_CTG2 : "",
 		BELONG_CTG3 : "",
 		SEARCH_TEXT : ""
 	},0,true);
+	
+	
+	$(condData_).on("columnvaluechanged",function(event_,columnName_,rowIndex_){
+		if(columnName_ === "BELONG_CTG1"){
+			condData_.setColumnValue("BELONG_CTG2",0,"");
+			condData_.setColumnValue("BELONG_CTG3",0,"");
+			atFuncE05001_loadBelongCtg2();
+			atFuncE05001_loadBelongCtg3();
+		}else if(columnName_ === "BELONG_CTG2"){
+			condData_.setColumnValue("BELONG_CTG3",0,"");
+			atFuncE05001_loadBelongCtg3();
+		}
+	});
 });
-
 
 $(document).ready(function(){
 	RKCommon.belong.getBelongCategory({belongId : RKCommon.belong.rootBelongId, title : "소속1"},function(data_){
@@ -52,7 +70,7 @@ function atFuncE05001_loadBelongCtg2(){
 }
 function atFuncE05001_loadBelongCtg3(){
 	var condData_ = JGDS("dataset","e05001CondData");
-	var belongCtg2_ = condData_.getColumnValue("belong_ctg1",0);
+	var belongCtg2_ = condData_.getColumnValue("belong_ctg2",0);
 	RKCommon.belong.getBelongCategory({belongId : belongCtg2_, title : "소속3"},function(data_){
 		JGDS("dataset","e05001BelongCtg3", data_);		
 		$("[jg-dataset='e05001CondData']").trigger("datasetuicolumnrefreshed",[null, 0]);
@@ -78,7 +96,7 @@ function atFuncE05001_search(callback_){
 	});
 }
 
-function atFuncE05001_switchAttend(rowIndex_){
+function atFuncE05001_switchAttend(btn_, rowIndex_){
 	var attendData_ = JGDS("dataset","e05001AttendData");
 	var misId_ = attendData_.getColumnValue("MIS_ID",rowIndex_);
 	var eduId_ = attendData_.getColumnValue("EDU_ID",rowIndex_);
@@ -92,7 +110,7 @@ function atFuncE05001_switchAttend(rowIndex_){
 		if(!NVL(result_,false)){
 			alert("에러발생");
 		}else{
-			attendData_.setColumnValue("ATTEND_YN",rowIndex_, attendStatus_);
+			attendData_.setColumnValue("ATTEND_STATUS",rowIndex_, attendStatus_);
 		}
 		$(btn_).removeClass("ui-disabled");
 	});
@@ -115,7 +133,7 @@ function atFuncE05001_switchFee(btn_, rowIndex_){
 	});
 }
 
-function atFuncE05001_switchBookReport(rowIndex_){
+function atFuncE05001_switchReport(btn_, rowIndex_){
 	var attendData_ = JGDS("dataset","e05001AttendData");
 	var misId_ = attendData_.getColumnValue("MIS_ID",rowIndex_);
 	var memSid_ = attendData_.getColumnValue("MEM_SID",rowIndex_);

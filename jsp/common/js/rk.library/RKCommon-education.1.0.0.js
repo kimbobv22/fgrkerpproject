@@ -3,10 +3,11 @@
 	var module_ = window.RKCommon.education = {
 		requestURLKey : "education",
 		updateAttend : function(misId_, eduId_, eduDid_, memSid_, status_, callback_){
+			var that_ = this;
 			RKCommon.cryptJSON({misId : misId_,
 				eduId : eduId_, eduDid : eduDid_, memSid : memSid_,
 				status : status_}, function(cryptedData_){
-					JGService.ajax(this.requestURLKey,{
+					JGService.ajax(that_.requestURLKey,{
 						data : $.extend({srvID : "updateAttend"}, cryptedData_)
 						,success : function(data_){
 							if(data_.result === 0) if(!isNull(callback_)) callback_(true);

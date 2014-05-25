@@ -49,19 +49,22 @@
 					if(!isNull(callback_)) callback_(undefined);
 				}
 			});
-		},_cachedBelongInfo : {}
+		}
+		,_cachedBelongInfo : {}
 		,getBelongInfo : function(belongId_, callback_){
 			if(!isNull(this._cachedBelongInfo[belongId_])){
-				if(!isNull(callback_)) callback_($.extend(true,this._cachedBelongInfo[belongId_],{}));
+				if(!isNull(callback_)) callback_($.extend(true,{},this._cachedBelongInfo[belongId_]));
+				return;
 			}
 			
+			this._belongInfo_isBusy = true;
 			var that_ = this;
 			JGService.ajax(this.requestURLKey,{
 				data : {
 					srvID : "info"
 					,belongId : belongId_
 				},success: function(data_){
-					that_._cachedBelongInfo[belongId_] = $.extend(true,data_,{});
+					that_._cachedBelongInfo[belongId_] = $.extend(true,{},data_);
 					if(!isNull(callback_)) callback_(data_);
 				},error : function(response_, errorStr_){
 					if(!isNull(callback_)) callback_(undefined);

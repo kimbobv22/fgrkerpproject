@@ -57,9 +57,9 @@
 							##fx:"  "+##status_nm##
 						</span><br/>
 						<!--<span rk-belong-label="##fx:##belong_ctg1##" rk-belong-column="BELONG_NM" rk-belong-blk="소속2없음"></span>-->
-						<span class="rk-label rk-label-small-l4 rk-color-gray6" rk-belong-label="##fx:##belong_ctg2##" rk-belong-column="BELONG_NM" rk-belong-blk="소속2없음"></span>
+						<span class="rk-label rk-label-small-l4 rk-color-gray6">##fx:NVL2(##belong_ctg2##,##belong_ctg2_nm##,'소속2없음')</span>
 						<span class="rk-label rk-label-small-l4 rk-color-gray6">/</span>
-						<span class="rk-label rk-label-small-l4 rk-color-gray6" rk-belong-label="##fx:##belong_ctg3##" rk-belong-column="BELONG_NM" rk-belong-blk="소속3없음"></span>
+						<span class="rk-label rk-label-small-l4 rk-color-gray6">##fx:NVL2(##belong_ctg3##,##belong_ctg3_nm##,'소속3없음')</span>
 					</div>
 					<div class="ui-block-c">
 						<span class="rk-label rk-label-small-l4 rk-color-gray9">##fx:BLK(##phone1##,"개인연락처없음")</span><br/>

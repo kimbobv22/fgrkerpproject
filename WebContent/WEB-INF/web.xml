@@ -50,7 +50,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>CorsFilter</filter-name>
-		<url-pattern>/belong</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
 	<security-constraint>

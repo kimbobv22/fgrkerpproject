@@ -87,7 +87,7 @@ public class E01000 extends JGAction {
 		}
 		
 		String eduDnm_ = (String)dataset_.getColumnValue("edu_dnm", 0);
-		serviceBox_.setAttribute("eduDid", eduId_);
+		serviceBox_.setAttribute("eduDid", eduDid_);
 		serviceBox_.setAttribute("eduDnm", eduDnm_);
 		
 		return isAdmin_ ? 1 : 0;

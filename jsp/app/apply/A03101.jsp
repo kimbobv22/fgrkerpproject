@@ -14,7 +14,6 @@
 	<jsp:include page="/jsp/common/view/RKDefault.jsp" flush="true" />
 	<div data-role="content">
 		<div class="rk-content-view" jg-dataset="a03101ApplyData">
-			이름, 연락처1, 소속1, 소속2, 소속3
 			
 		</div>
 		<a href="javascript:atFuncA031001_addApply();" class="rk-responsive-r ui-btn ui-btn-b">추가하기</a>

@@ -69,7 +69,8 @@
 				
 				var result_ = {};
 				for(var key_ in json_){
-					result_[key_] = rsa_.encrypt(json_[key_]);
+					if(json_.hasOwnProperty(key_))
+						result_[key_] = rsa_.encrypt(json_[key_]);
 				}
 				
 				callback_(result_);

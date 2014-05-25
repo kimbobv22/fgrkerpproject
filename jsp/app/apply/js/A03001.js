@@ -67,7 +67,7 @@ function atFuncA03001_loadBelongCtg2(){
 }
 function atFuncA03001_loadBelongCtg3(){
 	var condData_ = JGDS("dataset","a03001CondData");
-	var belongCtg2_ = condData_.getColumnValue("belong_ctg1",0);
+	var belongCtg2_ = condData_.getColumnValue("belong_ctg2",0);
 	RKCommon.belong.getBelongCategory({belongId : belongCtg2_, title : "소속3"},function(data_){
 		JGDS("dataset","a03001BelongCtg3", data_);		
 		$("[jg-dataset='a03001CondData']").trigger("datasetuicolumnrefreshed",[null, 0]);
